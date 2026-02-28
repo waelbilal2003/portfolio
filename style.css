@@ -420,54 +420,106 @@ ul { list-style: none; }
 
 .photo-frame {
   position: relative;
-  width: 280px; height: 280px;
+  width: 280px;  /* حجم مناسب */
+  height: 280px; /* نفس العرض والارتفاع للصورة الدائرية */
+  margin: 0 auto;
 }
-
-.photo-ring {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid var(--accent);
-  animation: rotate-ring linear infinite;
-}
-
-.ring-1 { inset: -20px; opacity: 0.15; animation-duration: 20s; }
-.ring-2 { inset: -10px; opacity: 0.1; animation-duration: 15s; border-style: dashed; animation-direction: reverse; }
-.ring-3 { inset: 0; opacity: 0.2; animation-duration: 30s; }
-
-@keyframes rotate-ring { to { transform: rotate(360deg); } }
 
 .photo-placeholder {
   position: absolute;
-  inset: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;  /* حجم الصورة الداخلية */
+  height: 380px; /* نفس الارتفاع */
   border-radius: 50%;
-  border: 2px solid var(--accent);
-  background: var(--bg-card);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
-  cursor: pointer;
-  transition: var(--transition);
-  box-shadow: 0 0 40px rgba(0,212,255,0.15), inset 0 0 40px rgba(0,212,255,0.05);
-}
-
-.photo-placeholder:hover { box-shadow: 0 0 60px rgba(0,212,255,0.3); }
-
-.photo-placeholder svg { width: 120px; height: 120px; opacity: 0.6; }
-
-.photo-placeholder p {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  text-align: center;
-  margin-top: 8px;
-  padding: 0 20px;
-  line-height: 1.4;
+  background: rgba(0, 212, 255, 0.1);
+  border: 3px solid rgba(0, 212, 255, 0.3);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
 }
 
 .photo-placeholder img {
-  width: 100%; height: 100%;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* يقص الصورة لتناسب الإطار الدائري */
+  object-position: center 30%; /* يحاذي الجزء العلوي للصورة (تعديل حسب صورتك) */
+  transition: transform 0.3s ease;
+}
+
+.photo-placeholder img:hover {
+  transform: scale(1.05); /* تأثير تكبير بسيط عند التمرير */
+}
+
+/* الحلقات الدائرية */
+.photo-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ring-1 {
+  width: 240px;
+  height: 240px;
+  border-width: 2px;
+  animation: rotate 20s linear infinite;
+}
+
+.ring-2 {
+  width: 210px;
+  height: 210px;
+  border-width: 1.5px;
+  border-style: dashed;
+  animation: rotateReverse 15s linear infinite;
+}
+
+.ring-3 {
+  width: 180px;
+  height: 180px;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.2);
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes rotateReverse {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+/* للشاشات الصغيرة */
+@media (max-width: 768px) {
+  .photo-frame {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .photo-placeholder {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .ring-1 {
+    width: 190px;
+    height: 190px;
+  }
+  
+  .ring-2 {
+    width: 165px;
+    height: 165px;
+  }
+  
+  .ring-3 {
+    width: 140px;
+    height: 140px;
+  }
 }
 
 .floating-tags {

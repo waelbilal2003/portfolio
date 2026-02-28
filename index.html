@@ -90,29 +90,33 @@
         </div>
       </div>
 
-      <div class="hero-visual">
-        <div class="photo-frame">
-          <div class="photo-ring ring-1"></div>
-          <div class="photo-ring ring-2"></div>
-          <div class="photo-ring ring-3"></div>
-          <div class="photo-placeholder" id="profilePhoto">
-            <svg viewBox="0 0 100 100" fill="none">
-              <circle cx="50" cy="35" r="18" fill="rgba(0,212,255,0.3)" stroke="#00d4ff" stroke-width="1.5" />
-              <path d="M15 85 Q50 55 85 85" fill="rgba(0,212,255,0.15)" stroke="#00d4ff" stroke-width="1.5" />
-            </svg>
-            <img src="photo.jpg" alt="صورتي الشخصية"
-              onerror="this.style.display='none'; document.getElementById('photoFallback').style.display='flex';" />
-          </div>
-        </div>
-        <div class="floating-tags">
-          <div class="ftag ftag-1">⚡ Flutter</div>
-          <div class="ftag ftag-2">📱 Mobile Dev</div>
-          <div class="ftag ftag-3">🔥 Python</div>
-          <div class="ftag ftag-4">🐘 PHP</div>
-
-        </div>
-      </div>
+     <div class="hero-visual">
+  <div class="photo-frame">
+    <div class="photo-ring ring-1"></div>
+    <div class="photo-ring ring-2"></div>
+    <div class="photo-ring ring-3"></div>
+    <div class="photo-placeholder" id="profilePhoto">
+      <!-- SVG يظهر فقط في حالة فشل تحميل الصورة -->
+      <svg class="fallback-svg" viewBox="0 0 100 100" fill="none" style="display: none;">
+        <circle cx="50" cy="35" r="18" fill="rgba(0,212,255,0.3)" stroke="#00d4ff" stroke-width="1.5" />
+        <path d="M15 85 Q50 55 85 85" fill="rgba(0,212,255,0.15)" stroke="#00d4ff" stroke-width="1.5" />
+      </svg>
+      
+      <!-- الصورة الشخصية -->
+      <img src="photo.jpg" 
+           alt="صورتي الشخصية"
+           style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"
+           onerror="this.style.display='none'; document.querySelector('.fallback-svg').style.display='block';" />
     </div>
+  </div>
+  
+  <div class="floating-tags">
+    <div class="ftag ftag-1">⚡ Flutter</div>
+    <div class="ftag ftag-2">📱 Mobile Dev</div>
+    <div class="ftag ftag-3">🔥 Python</div>
+    <div class="ftag ftag-4">🐘 PHP</div>
+  </div>
+</div>
 
   </section>
 
