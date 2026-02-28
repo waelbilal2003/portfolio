@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>بورتفوليو | وكيل ذكاء اصطناعي ومطور تطبيقات موبايل</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- ====== NAVIGATION ====== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-bracket">&lt;</span>
+      <span class="logo-name">wael</span>
+      <span class="logo-bracket">/&gt;</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero">الرئيسية</a></li>
+      <li><a href="#about">من أنا</a></li>
+      <li><a href="#projects">المشاريع</a></li>
+      <li><a href="#skills">المهارات</a></li>
+      <li><a href="#certifications">الشهادات</a></li>
+      <li><a href="#contact" class="nav-cta">تواصل معي</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ====== SECTION 1: HERO ====== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-particles" id="particles"></div>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          متاح للعمل
+        </div>
+        <h1 class="hero-title">
+          <span class="title-line" data-text="اسمك الكامل">وائل بلال</span>
+        </h1>
+        <h2 class="hero-subtitle">
+          <span class="typed-text" id="typedText"></span>
+          <span class="cursor-blink">|</span>
+        </h2>
+        <p class="hero-tagline" id="hero-tagline">
+          ✦ الثقة بالنفس هي سر كل نجاح ✦
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">
+            <span>استعرض أعمالي</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <span>تواصل معي</span>
+          </a>
+          <a href="Wael_Bilal_CV.pdf" download="Wael_Bilal_CV.pdf" class="btn btn-ghost" id="downloadCV">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+            </svg>
+            <span>تحميل السيرة الذاتية</span>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num" data-target="11">0</span>
+            <span class="stat-label">مشروع منجز</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="1">0</span>
+            <span class="stat-label">سنوات خبرة</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="2">0</span>
+            <span class="stat-label">شهادة مهنية</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="photo-frame">
+          <div class="photo-ring ring-1"></div>
+          <div class="photo-ring ring-2"></div>
+          <div class="photo-ring ring-3"></div>
+          <div class="photo-placeholder" id="profilePhoto">
+            <svg viewBox="0 0 100 100" fill="none">
+              <circle cx="50" cy="35" r="18" fill="rgba(0,212,255,0.3)" stroke="#00d4ff" stroke-width="1.5" />
+              <path d="M15 85 Q50 55 85 85" fill="rgba(0,212,255,0.15)" stroke="#00d4ff" stroke-width="1.5" />
+            </svg>
+            <img src="photo.jpg" alt="صورتي الشخصية"
+              onerror="this.style.display='none'; document.getElementById('photoFallback').style.display='flex';" />
+          </div>
+        </div>
+        <div class="floating-tags">
+          <div class="ftag ftag-1">⚡ Flutter</div>
+          <div class="ftag ftag-2">📱 Mobile Dev</div>
+          <div class="ftag ftag-3">🔥 Python</div>
+          <div class="ftag ftag-4">🐘 PHP</div>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ====== SECTION 2: ABOUT ====== -->
+  <section class="about section" id="about">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <h2 class="section-title">من أنا</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="about-grid">
+      <!-- Personal Bio -->
+      <div class="about-card bio-card">
+        <div class="card-icon">👤</div>
+        <h3>نبذة شخصية</h3>
+        <p id="personalBio">
+          أنا وكيل ذكاء اصطناعي ومطور تطبيقات موبايل شغوف بالتكنولوجيا وحل المشكلات المعقدة , أعمل على بناء حلول ذكية
+          تجمع بين قوة الذكاء الاصطناعي وتجربة المستخدم الاستثنائية على منصات الموبايل أؤمن بأن التكنولوجيا وجدت لتخدم
+          الإنسان وتحسن جودة حياته.
+        </p>
+      </div>
+
+      <!-- AI Interests - بطاقة منفصلة أسفل النبذة الشخصية -->
+      <div class="about-card interests-card">
+        <div class="card-icon">🧠</div>
+        <h3>اهتماماتي في الذكاء الاصطناعي</h3>
+        <div class="interests-grid">
+          <div class="interest-chip">
+            <span class="chip-icon">🔮</span>
+            <span>تسريع عمليات الكتابة والتنقل مثل الاوامر الصوتية</span>
+          </div>
+          <div class="interest-chip">
+            <span class="chip-icon">💬</span>
+            <span>بناء نموذج محادثة لمراسلة العملاء بغياب الموظفين</span>
+          </div>
+          <div class="interest-chip">
+            <span class="chip-icon">🤖</span>
+            <span>حل الالغاز مثل لعبة الالغاز المنزلقة والشطرنج</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Programming Languages -->
+      <div class="about-card langs-card">
+        <div class="card-icon">💻</div>
+        <h3>لغات البرمجة</h3>
+        <div class="lang-bars">
+          <div class="lang-bar-item">
+            <div class="lang-info">
+              <span>Python</span>
+              <span class="lang-level">متوسط</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" data-w="70"></div>
+            </div>
+          </div>
+          <div class="lang-bar-item">
+            <div class="lang-info">
+              <span>Dart / Flutter</span>
+              <span class="lang-level">متقدم</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" data-w="85"></div>
+            </div>
+          </div>
+          <div class="lang-bar-item">
+            <div class="lang-info">
+              <span>PHP / Laravel</span>
+              <span class="lang-level">متوسط</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" data-w="65"></div>
+            </div>
+          </div>
+          <div class="lang-bar-item">
+            <div class="lang-info">
+              <span>JavaScript</span>
+              <span class="lang-level">متوسط</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" data-w="60"></div>
+            </div>
+          </div>
+          <div class="lang-bar-item">
+            <div class="lang-info">
+              <span>C#</span>
+              <span class="lang-level">اساسي</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" data-w="40"></div>
+            </div>
+          </div>
+        </div>
+  </section>
+  <!-- ====== SECTION 4: PROJECTS ====== -->
+  <section class="projects section" id="projects">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <h2 class="section-title">المشاريع</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="projects-tabs">
+      <button class="tab-btn active" data-tab="mobile">📱 تطبيقات الموبايل</button>
+      <button class="tab-btn" data-tab="more">💬 أخرى </button>
+    </div>
+
+    <!-- Mobile Projects -->
+    <div class="tab-content active" id="tab-mobile">
+      <div class="projects-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+
+        <!-- Sywabot Card -->
+        <div class="project-card mobile-card">
+          <div class="project-screenshots"
+            style="position: relative; width: 100%; aspect-ratio: 60/120; overflow: hidden; border-radius: 12px;">
+            <!-- صورة Sywabot -->
+            <img src="sywabot.jpg" alt="sywabot"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: rgba(0,0,0,0.05); border-radius: 12px;"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+
+            <!-- عنصر احتياطي يظهر في حالة فشل تحميل الصورة -->
+            <div class="screenshot-placeholder"
+              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+              <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; height: 100%;">
+                <rect x="2" y="2" width="56" height="116" rx="8" stroke="#00d4ff" stroke-width="1.5"
+                  fill="rgba(0,212,255,0.05)" />
+                <rect x="20" y="8" width="20" height="3" rx="1.5" fill="#00d4ff" opacity="0.4" />
+                <rect x="8" y="20" width="44" height="30" rx="3" fill="rgba(0,212,255,0.1)" stroke="#00d4ff"
+                  stroke-width="0.5" />
+                <rect x="8" y="58" width="20" height="20" rx="3" fill="rgba(0,212,255,0.1)" />
+                <rect x="32" y="58" width="20" height="20" rx="3" fill="rgba(0,212,255,0.1)" />
+                <rect x="8" y="84" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+                <rect x="8" y="96" width="30" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+              </svg>
+              <p style="text-align: center; margin-top: 0.5rem;">أضف Screenshots للتطبيق</p>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3>sywabot</h3>
+              <div class="os-badges">
+                <span class="os-badge android">Android</span>
+              </div>
+            </div>
+            <p class="project-desc">تطبيق محادثة ذكي يساعد المستخدمين على ايجاد رحلة السفر المناسبة لهم.</p>
+            <div class="tech-stack">
+              <span class="tech-chip">Flutter</span>
+              <span class="tech-chip">Dart</span>
+              <span class="tech-chip">Rasa Chatbot</span>
+              <span class="tech-chip">Python Backend</span>
+              <span class="tech-chip">Render server</span>
+            </div>
+            <div class="features-list">
+              <h4>الميزات الرئيسية</h4>
+              <ul>
+                <li>✦ سرعة في الاستجابة .</li>
+                <li>✦ ميزة ذكية لاختصار الاجوبة .</li>
+                <li>✦ ضمان استجابة صحيحة دوماً .</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- المحاضر الذكي Card -->
+        <div class="project-card mobile-card">
+          <div class="project-screenshots"
+            style="position: relative; width: 100%; aspect-ratio: 60/120; overflow: hidden; border-radius: 12px;">
+            <!-- صورة المحاضر الذكي -->
+            <img src="smart_lectorer.jpg" alt="المحاضر الذكي"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: rgba(0,0,0,0.05); border-radius: 12px;"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+
+            <!-- عنصر احتياطي يظهر في حالة فشل تحميل الصورة -->
+            <div class="screenshot-placeholder"
+              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+              <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; height: 100%;">
+                <rect x="2" y="2" width="56" height="116" rx="8" stroke="#00d4ff" stroke-width="1.5"
+                  fill="rgba(0,212,255,0.05)" />
+                <rect x="20" y="8" width="20" height="3" rx="1.5" fill="#00d4ff" opacity="0.4" />
+                <circle cx="30" cy="45" r="20" stroke="#00d4ff" stroke-width="0.5" fill="rgba(0,212,255,0.08)" />
+                <rect x="8" y="78" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+                <rect x="8" y="90" width="30" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+                <rect x="8" y="102" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+              </svg>
+              <p style="text-align: center; margin-top: 0.5rem;">أضف Screenshots للتطبيق</p>
+            </div>
+          </div>
+
+          <div class="project-info">
+            <div class="project-header">
+              <h3>المحاضر الذكي</h3>
+              <div class="os-badges">
+                <span class="os-badge android">Android</span>
+              </div>
+            </div>
+            <p class="project-desc">تطبيق لتحويل الصوت الى نص للأستفادة من المحاضرات ومساعدة الصم بشكل مباشر على ميكرفون
+              حي .</p>
+            <div class="tech-stack">
+              <span class="tech-chip">Flutter</span>
+              <span class="tech-chip">Dart</span>
+              <span class="tech-chip">whisper model</span>
+              <span class="tech-chip">Python Backend</span>
+            </div>
+            <div class="features-list">
+              <h4>الميزات الرئيسية</h4>
+              <ul>
+                <li>✦ ميكرفون ذكي يتفاعل بشكل جيد حتى مع وجود ضوضاء و كشف السكوت .</li>
+                <li>✦ امكانية التحويل الى pdf فوراًَ .</li>
+                <li>✦ وجود نموذج جيميناي لتلخيص المحاضرات بعد الحفظ .</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card mobile-card">
+          <div class="project-screenshots"
+            style="position: relative; width: 100%; aspect-ratio: 60/120; overflow: hidden; border-radius: 12px;">
+
+            <img src="minex.jpg" alt="minex"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: rgba(0,0,0,0.05); border-radius: 12px;"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+
+            <!-- عنصر احتياطي يظهر في حالة فشل تحميل الصورة -->
+            <div class="screenshot-placeholder"
+              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+              <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; height: 100%;">
+                <rect x="2" y="2" width="56" height="116" rx="8" stroke="#00d4ff" stroke-width="1.5"
+                  fill="rgba(0,212,255,0.05)" />
+                <rect x="20" y="8" width="20" height="3" rx="1.5" fill="#00d4ff" opacity="0.4" />
+                <circle cx="30" cy="45" r="20" stroke="#00d4ff" stroke-width="0.5" fill="rgba(0,212,255,0.08)" />
+                <rect x="8" y="78" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+                <rect x="8" y="90" width="30" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+                <rect x="8" y="102" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+              </svg>
+              <p style="text-align: center; margin-top: 0.5rem;">أضف Screenshots للتطبيق</p>
+            </div>
+          </div>
+
+          <div class="project-info">
+            <div class="project-header">
+              <h3>minex</h3>
+              <div class="os-badges">
+                <span class="os-badge android">Android</span>
+              </div>
+            </div>
+            <p class="project-desc">تطبيق صمم للتجارة الالكترونية بين السوريين يشبه تطبيق الفيسبوك تماماً في طريقة عمله
+              .</p>
+            <div class="tech-stack">
+              <span class="tech-chip">Flutter</span>
+              <span class="tech-chip">Dart</span>
+              <span class="tech-chip">Laravel</span>
+              <span class="tech-chip">PHP Backend</span>
+              <span class="tech-chip">Firebase Notifications</span>
+              <span class="tech-chip">Hostinger hosting</span>
+            </div>
+            <div class="features-list">
+              <h4>الميزات الرئيسية</h4>
+              <ul>
+                <li>✦ واجهة ادمن متقدمة تحوي تحكم شامل.</li>
+                <li>✦ رسائل و اشعارات و منشورات و تعليقات واعلانات مشابهة لآلية عمل فيسبوك.</li>
+                <li>✦ سرعة في الاستجابة و وجود ميزة الثيم و ميزة الزائر.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card mobile-card">
+          <div class="project-screenshots"
+            style="position: relative; width: 100%; aspect-ratio: 60/120; overflow: hidden; border-radius: 12px;">
+
+            <img src="workers_wages.jpg" alt="أجرة العمال"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: rgba(0,0,0,0.05); border-radius: 12px;"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+
+            <!-- عنصر احتياطي يظهر في حالة فشل تحميل الصورة -->
+            <div class="screenshot-placeholder"
+              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+              <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; height: 100%;">
+                <rect x="2" y="2" width="56" height="116" rx="8" stroke="#00d4ff" stroke-width="1.5"
+                  fill="rgba(0,212,255,0.05)" />
+                <rect x="20" y="8" width="20" height="3" rx="1.5" fill="#00d4ff" opacity="0.4" />
+                <circle cx="30" cy="45" r="20" stroke="#00d4ff" stroke-width="0.5" fill="rgba(0,212,255,0.08)" />
+                <rect x="8" y="78" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+                <rect x="8" y="90" width="30" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+                <rect x="8" y="102" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+              </svg>
+              <p style="text-align: center; margin-top: 0.5rem;">أضف Screenshots للتطبيق</p>
+            </div>
+          </div>
+
+          <div class="project-info">
+            <div class="project-header">
+              <h3>أجرة العمال</h3>
+              <div class="os-badges">
+                <span class="os-badge android">Android</span>
+              </div>
+            </div>
+            <p class="project-desc">تطبيق بسيط صمم لحل مشكلة تعدد العملات التي يطلبها العمال وسهولة حساب اجرتهم عن طريق
+              تسجيل الحضور بضغطة زر
+              .</p>
+            <div class="tech-stack">
+              <span class="tech-chip">Flutter</span>
+              <span class="tech-chip">Dart</span>
+              <span class="tech-chip">Shared Preferences</span>
+            </div>
+            <div class="features-list">
+              <h4>الميزات الرئيسية</h4>
+              <ul>
+                <li>✦ بسيط جداً للاستخدام بترابط دقيق جداً.</li>
+                <li>✦ تخزين يدوم مدى الحياة بدون انترنت.</li>
+                <li>✦ميزة الفهرس لاختصار الكتابة بحرف واحد .</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card mobile-card">
+          <div class="project-screenshots"
+            style="position: relative; width: 100%; aspect-ratio: 60/120; overflow: hidden; border-radius: 12px;">
+
+            <img src="alhalmarket.jpg" alt="محاسب سوق الهال"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: rgba(0,0,0,0.05); border-radius: 12px;"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+
+            <!-- عنصر احتياطي يظهر في حالة فشل تحميل الصورة -->
+            <div class="screenshot-placeholder"
+              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+              <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; height: 100%;">
+                <rect x="2" y="2" width="56" height="116" rx="8" stroke="#00d4ff" stroke-width="1.5"
+                  fill="rgba(0,212,255,0.05)" />
+                <rect x="20" y="8" width="20" height="3" rx="1.5" fill="#00d4ff" opacity="0.4" />
+                <circle cx="30" cy="45" r="20" stroke="#00d4ff" stroke-width="0.5" fill="rgba(0,212,255,0.08)" />
+                <rect x="8" y="78" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+                <rect x="8" y="90" width="30" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+                <rect x="8" y="102" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+              </svg>
+              <p style="text-align: center; margin-top: 0.5rem;">أضف Screenshots للتطبيق</p>
+            </div>
+          </div>
+
+          <div class="project-info">
+            <div class="project-header">
+              <h3>محاسب سوق الهال</h3>
+              <div class="os-badges">
+                <span class="os-badge android">Android</span>
+              </div>
+            </div>
+            <p class="project-desc">تطبيق محاسبي ضخم صمم كتطبيق اندرويد مصغر لنسخة الويندوز الموجودة بالسوق يساويه في كل
+              الميزات يظهر بشكل مقلوب لعرض جميع العناصر بنفس الشاشة
+              .</p>
+            <div class="tech-stack">
+              <span class="tech-chip">Flutter</span>
+              <span class="tech-chip">Dart</span>
+              <span class="tech-chip">Shared Preferences</span>
+              <span class="tech-chip">Json Files</span>
+            </div>
+            <div class="features-list">
+              <h4>الميزات الرئيسية</h4>
+              <ul>
+                <li>✦ بسيط الاستخدام يعرض كل شيء بنفس الشاشة بطريقة منافسة للحاسوب .</li>
+                <li>✦ تخزين يدوم مدى الحياة بدون انترنت مع إمكانية نقل البيانات.</li>
+                <li>✦ميزة الفهرس لاختصار الكتابة بحرف واحد .</li>
+                <li>✦ تحويل السجلات الى pdf بشكل احترافي ومشابه تماماً لمحتوى الشاشة .</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- إغلاق projects-grid -->
+    </div> <!-- إغلاق tab-content -->
+
+    <!-- More Projects (قسم أخرى) -->
+    <div class="tab-content" id="tab-more">
+      <div class="projects-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+
+        <!-- مشروع بايثون 1 -->
+        <div class="project-card web-card">
+          <div class="project-screenshots"
+            style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
+            <!-- صورة المشروع -->
+            <img src="slides_puzzle.png" alt="مشروع بايثون"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
+              onerror="this.style.display='none'; document.getElementById('placeholder-turkey').style.display='flex';" />
+
+            <!-- عنصر احتياطي مع id محدد -->
+            <div id="placeholder-turkey" class="screenshot-placeholder"
+              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
+              <span style="font-size: 3rem;">🌐</span>
+              <p style="color: #00d4ff; margin-top: 1rem;">مشروع بايثون</p>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3>خوارزمية ذكية لحل الغاز لعبة المكعبات المنزلقة</h3>
+              <div class="os-badges">
+                <span class="os-badge web">Python</span>
+              </div>
+            </div>
+            <div class="tech-stack">
+              <span class="tech-chip">python</span>
+              <span class="tech-chip">heapq</span>
+              <span class="tech-chip">copy</span>
+              <span class="tech-chip">typing</span>
+            </div>
+            <div class="features-list">
+              <h4>الميزات الرئيسية</h4>
+              <ul>
+                <li>✦ حل جميع الغاز اللعبة مهما بلغت صعوبتها </li>
+                <li>✦ تصميم مذهل وكأنها اللعبة نفسها</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card web-card">
+          <div class="project-screenshots"
+            style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
+            <!-- صورة المشروع -->
+            <img src="tank_gun.png" alt="مشروع لعبة 1"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
+              onerror="this.style.display='none'; document.getElementById('placeholder-turkey').style.display='flex';" />
+
+            <!-- عنصر احتياطي مع id محدد -->
+            <div id="placeholder-turkey" class="screenshot-placeholder"
+              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
+              <span style="font-size: 3rem;">🌐</span>
+              <p style="color: #00d4ff; margin-top: 1rem;">مشروع لعبة</p>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3> لعبة 3D لدبابة تقصف الروبوتات المتحركة</h3>
+              <div class="os-badges">
+                <span class="os-badge web">Unity Hub</span>
+              </div>
+            </div>
+            <div class="tech-stack">
+              <span class="tech-chip">Unity Hub</span>
+              <span class="tech-chip">C#</span>
+              <span class="tech-chip">3D body</span>
+              <span class="tech-chip">NavMesh</span>
+            </div>
+            <div class="features-list">
+              <h4>الميزات الرئيسية</h4>
+              <ul>
+                <li>✦ الروبوتات تهرب من الدبابة</li>
+                <li>✦ ميزة zoom وتاثير قصف وتحليق الروبوتات</li>
+                <li>✦ تضاريس واقعية تحاكي اراضي حروب الدبابات</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- مشروع لعبة 2 -->
+        <!-- البطاقة الثالثة - Turkey Box -->
+<div class="project-card web-card">
+  <div class="project-screenshots" style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
+    <!-- صورة المشروع -->
+    <img src="turkey_box.png" 
+         alt="مشروع ويب 1"
+         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
+         onerror="this.style.display='none'; document.getElementById('placeholder-turkey').style.display='flex';" />
+
+    <!-- عنصر احتياطي -->
+    <div id="placeholder-turkey" class="screenshot-placeholder"
+         style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
+      <span style="font-size: 3rem;">🌐</span>
+      <p style="color: #00d4ff; margin-top: 1rem;">مشروع ويب</p>
+    </div>
+  </div>
+  
+  <div class="project-info">
+    <div class="project-header">
+      <h3>موقع لحساب تكاليف مقاسات الصناديق بانواعها</h3>
+      <div class="os-badges">
+        <span class="os-badge web">Web</span>
+      </div>
+    </div>
+    <div class="tech-stack">
+      <span class="tech-chip">HTML</span>
+      <span class="tech-chip">CSS</span>
+      <span class="tech-chip">JavaScript</span>
+      <span class="tech-chip">Github</span>
+    </div>
+    <div class="features-list">
+      <h4>الميزات الرئيسية</h4>
+      <ul>
+        <li>✦ تناسق جيد بين الهاتف و الحاسوب</li>
+        <li>✦ حسابات دقيقة وفورية</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- البطاقة الرابعة - Naruto Balls -->
+<div class="project-card web-card">
+  <div class="project-screenshots" style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
+    <!-- صورة المشروع -->
+    <img src="naruto_balls.png" 
+         alt="مشروع لعبة 2"
+         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
+         onerror="this.style.display='none'; document.getElementById('placeholder-naruto').style.display='flex';" />
+
+    <!-- عنصر احتياطي - مع ID مختلف -->
+    <div id="placeholder-naruto" class="screenshot-placeholder"
+         style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
+      <span style="font-size: 3rem;">🎮</span>
+      <p style="color: #00d4ff; margin-top: 1rem;">مشروع لعبة</p>
+    </div>
+  </div>
+  
+  <div class="project-info">
+    <div class="project-header">
+      <h3>لعبة 3D ل 5 كرات بقدرات مختلفة</h3>
+      <div class="os-badges">
+        <span class="os-badge web">Unity</span>
+      </div>
+    </div>
+    <div class="tech-stack">
+      <span class="tech-chip">Unity</span>
+      <span class="tech-chip">C#</span>
+      <span class="tech-chip">3D body</span>
+      <span class="tech-chip">NavMesh</span>
+    </div>
+    <div class="features-list">
+      <h4>الميزات الرئيسية</h4>
+      <ul>
+        <li>✦ الروبوتات تهاجم الكرات بعنف</li>
+        <li>✦ كل كرة لها قدرتها (التقليص-التضخيم-السرعة-القفز-اطلاق النار)</li>
+        <li>✦ تحكم عالي بكل كرة منفردة او بجميع الكرات معاً</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="project-card web-card">
+  <div class="project-screenshots" style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
+    <!-- صورة المشروع -->
+    <img src="crazy_billiard.png" 
+         alt="مشروع لعبة 3"
+         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
+         onerror="this.style.display='none'; document.getElementById('placeholder-naruto').style.display='flex';" />
+
+    <!-- عنصر احتياطي - مع ID مختلف -->
+    <div id="placeholder-crazy-billiard" class="screenshot-placeholder"
+         style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
+      <span style="font-size: 3rem;">🎮</span>
+      <p style="color: #00d4ff; margin-top: 1rem;">مشروع لعبة</p>
+    </div>
+  </div>
+  
+  <div class="project-info">
+    <div class="project-header">
+      <h3>لعبة 3D تقليد للعبة البلياردو مع ميزات ذكاء اصطناعي لجنون الكرة السوداء</h3>
+      <div class="os-badges">
+        <span class="os-badge web">Unity</span>
+      </div>
+    </div>
+    <div class="tech-stack">
+      <span class="tech-chip">Unity</span>
+      <span class="tech-chip">C#</span>
+      <span class="tech-chip">3D body</span>
+      <span class="tech-chip">NavMesh</span>
+    </div>
+    <div class="features-list">
+      <h4>الميزات الرئيسية</h4>
+      <ul>
+        <li>✦ تحكم فريد في زاوية الرؤية </li>
+        <li>✦ الكرة السوداء يجن جنونها بين الحين والاخر وتقترب من الكرة البيضاء لزيادة نسب خسارة اللاعب</li>
+        <li>✦ نظام حساب نقاط وتمييز بين الكرات </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+    <!-- ====== SECTION 5: SKILLS ====== -->
+    <section class="skills section" id="skills">
+      <div class="section-header">
+        <span class="section-number">03</span>
+        <h2 class="section-title">المهارات</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="skills-universe">
+
+        <div class="skill-category">
+          <div class="skill-cat-header">
+            <span class="skill-cat-icon">🧠</span>
+            <h3>تقنيات الذكاء الاصطناعي</h3>
+          </div>
+          <div class="skill-bubbles">
+            <div class="skill-bubble" data-level="90" data-name="Rasa">Rasa(NLP)</div>
+            <div class="skill-bubble" data-level="80" data-name="Whisper">Whisper(STT)</div>
+            <div class="skill-bubble" data-level="60" data-name="OpenCV">OpenCV</div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-cat-header">
+            <span class="skill-cat-icon">📱</span>
+            <h3>تطوير تطبيقات الموبايل</h3>
+          </div>
+          <div class="skill-bubbles">
+            <div class="skill-bubble" data-level="92" data-name="Flutter">Flutter</div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-cat-header">
+            <span class="skill-cat-icon">🗄️</span>
+            <h3>قواعد البيانات</h3>
+          </div>
+          <div class="skill-bubbles">
+            <div class="skill-bubble" data-level="85" data-name="MySQL">MySQL</div>
+            <div class="skill-bubble" data-level="70" data-name="SQLite">SQLite</div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-cat-header">
+            <span class="skill-cat-icon">🛠️</span>
+            <h3>أدوات وتقنيات أخرى</h3>
+          </div>
+          <div class="skill-bubbles">
+            <div class="skill-bubble" data-level="90" data-name="Git">Git</div>
+            <div class="skill-bubble" data-level="82" data-name="Postman">Postman</div>
+            <div class="skill-bubble" data-level="95" data-name="Draw.io">Draw.io</div>
+            <div class="skill-bubble" data-level="95" data-name="Ngrok">Ngrok</div>
+            <div class="skill-bubble" data-level="65" data-name="Laravel">Laravel</div>
+            <div class="skill-bubble" data-level="86" data-name="Xampp">Xampp</div>
+            <div class="skill-bubble" data-level="78" data-name="Laragon">Laragon</div>
+            <div class="skill-bubble" data-level="85" data-name="Hostinger">Hostinger</div>
+            <div class="skill-bubble" data-level="85" data-name="Flask">Flask</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="skill-tooltip" id="skillTooltip"></div>
+    </section>
+
+    <!-- ====== SECTION 6: CERTIFICATIONS ====== -->
+    <section class="certifications section" id="certifications">
+      <div class="section-header">
+        <span class="section-number">04</span>
+        <h2 class="section-title">الشهادات والدورات</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="cert-tabs">
+        <button class="cert-tab-btn active" data-ctab="certs">🏆 الشهادات المهنية</button>
+        <button class="cert-tab-btn" data-ctab="courses">📚 الدورات والورش</button>
+        <button class="cert-tab-btn" data-ctab="events">🎤 المؤتمرات</button>
+      </div>
+
+      <!-- الشهادات المهنية -->
+      <div class="cert-content active" id="ctab-certs">
+        <div class="certs-grid">
+          <div class="cert-card">
+            <div class="cert-badge">🏆</div>
+            <div class="cert-body">
+              <span class="cert-issuer">معهد دمشق المتوسط DTC</span>
+              <h4>دبلوم صيانة اجهزة الكمبيوتر و الآلات المكتبية</h4>
+              <span class="cert-date">2020</span>
+            </div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-badge">🎖️</div>
+            <div class="cert-body">
+              <span class="cert-issuer">معهد دمشق المتوسط DTC</span>
+              <h4>دبلوم الذكاء الاصطناعي</h4>
+              <span class="cert-date">2025</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- الدورات والورش -->
+      <div class="cert-content" id="ctab-courses">
+        <div class="certs-grid">
+          <div class="cert-card course-card">
+            <div class="cert-badge">📚</div>
+            <div class="cert-body">
+              <span class="cert-issuer">EMBS</span>
+              <h4>دورة بناء نماذج ذكاء اصطناعي</h4>
+              <span class="cert-date">📅 2025</span>
+              <div class="course-hours">⏱ شهرين</div>
+            </div>
+          </div>
+          <!-- يمكنك إضافة المزيد من الدورات هنا -->
+        </div>
+      </div>
+
+      <!-- المؤتمرات -->
+      <div class="cert-content" id="ctab-events">
+        <div class="certs-grid">
+          <div class="cert-card event-card">
+            <div class="cert-badge">🎤</div>
+            <div class="cert-body">
+              <span class="cert-issuer">دمشق / سوريا</span>
+              <h4>معرض معهد دمشق المتوسط</h4>
+              <span class="cert-date">📅 2025</span>
+              <div class="event-role">دور: مقدم مشاريع</div>
+            </div>
+          </div>
+          <div class="certs-grid">
+            <div class="cert-card event-card">
+              <div class="cert-badge">🎤</div>
+              <div class="cert-body">
+                <span class="cert-issuer">دمشق / سوريا</span>
+                <h4>معرض تكنو سبارك</h4>
+                <span class="cert-date">📅 2025</span>
+                <div class="event-role">دور: مقدم مشاريع</div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- ====== SECTION 7: CONTACT ====== -->
+    <section class="contact section" id="contact">
+      <div class="section-header">
+        <span class="section-number">05</span>
+        <h2 class="section-title">تواصل معي</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>دعنا نتحدث 👋</h3>
+          <p>هل لديك مشروع تريد تحقيقه؟ أو تريد التحدث عن عرض فرصة عمل؟ أنا هنا للاستماع. تواصل معي وسأرد خلال اقل من 24
+            ساعة.</p>
+
+          <div class="contact-channels">
+            <a href="mailto:your@email.com" class="channel-item">
+              <div class="channel-icon">✉️</div>
+              <div class="channel-info">
+                <span class="channel-label">البريد الإلكتروني</span>
+                <span class="channel-value">waelbilal20032003@gmail.com</span>
+              </div>
+            </a>
+            <a href="https://wa.me/+963934875267" target="_blank" class="channel-item">
+              <div class="channel-icon">📞</div>
+              <div class="channel-info">
+                <span class="channel-label">WhatsApp</span>
+                <span class="channel-value">+963934875267</span>
+              </div>
+            </a>
+    </section>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span class="logo-bracket">&lt;</span>
+          <span>Wael</span>
+          <span class="logo-bracket">/&gt;</span>
+        </div>
+        <p class="footer-copy">صُنع بـ ❤️ وشغف بالتكنولوجيا · جميع الحقوق محفوظة © 2026</p>
+        <button class="back-to-top" id="backToTop" title="العودة للأعلى">↑</button>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
