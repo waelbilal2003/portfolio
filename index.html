@@ -90,33 +90,32 @@
         </div>
       </div>
 
-     <div class="hero-visual">
-  <div class="photo-frame">
-    <div class="photo-ring ring-1"></div>
-    <div class="photo-ring ring-2"></div>
-    <div class="photo-ring ring-3"></div>
-    <div class="photo-placeholder" id="profilePhoto">
-      <!-- SVG يظهر فقط في حالة فشل تحميل الصورة -->
-      <svg class="fallback-svg" viewBox="0 0 100 100" fill="none" style="display: none;">
-        <circle cx="50" cy="35" r="18" fill="rgba(0,212,255,0.3)" stroke="#00d4ff" stroke-width="1.5" />
-        <path d="M15 85 Q50 55 85 85" fill="rgba(0,212,255,0.15)" stroke="#00d4ff" stroke-width="1.5" />
-      </svg>
-      
-      <!-- الصورة الشخصية -->
-      <img src="photo.jpg" 
-           alt="صورتي الشخصية"
-           style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"
-           onerror="this.style.display='none'; document.querySelector('.fallback-svg').style.display='block';" />
-    </div>
-  </div>
-  
-  <div class="floating-tags">
-    <div class="ftag ftag-1">⚡ Flutter</div>
-    <div class="ftag ftag-2">📱 Mobile Dev</div>
-    <div class="ftag ftag-3">🔥 Python</div>
-    <div class="ftag ftag-4">🐘 PHP</div>
-  </div>
-</div>
+      <div class="hero-visual">
+        <div class="photo-frame">
+          <div class="photo-ring ring-1"></div>
+          <div class="photo-ring ring-2"></div>
+          <div class="photo-ring ring-3"></div>
+          <div class="photo-placeholder" id="profilePhoto">
+            <!-- SVG يظهر فقط في حالة فشل تحميل الصورة -->
+            <svg class="fallback-svg" viewBox="0 0 100 100" fill="none" style="display: none;">
+              <circle cx="50" cy="35" r="18" fill="rgba(0,212,255,0.3)" stroke="#00d4ff" stroke-width="1.5" />
+              <path d="M15 85 Q50 55 85 85" fill="rgba(0,212,255,0.15)" stroke="#00d4ff" stroke-width="1.5" />
+            </svg>
+
+            <!-- الصورة الشخصية -->
+            <img src="photo.jpg" alt="صورتي الشخصية"
+              style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"
+              onerror="this.style.display='none'; document.querySelector('.fallback-svg').style.display='block';" />
+          </div>
+        </div>
+
+        <div class="floating-tags">
+          <div class="ftag ftag-1">⚡ Flutter</div>
+          <div class="ftag ftag-2">📱 Mobile Dev</div>
+          <div class="ftag ftag-3">🔥 Python</div>
+          <div class="ftag ftag-4">🐘 PHP</div>
+        </div>
+      </div>
 
   </section>
 
@@ -382,6 +381,7 @@
                 <li>✦ واجهة ادمن متقدمة تحوي تحكم شامل.</li>
                 <li>✦ رسائل و اشعارات و منشورات و تعليقات واعلانات مشابهة لآلية عمل فيسبوك.</li>
                 <li>✦ سرعة في الاستجابة و وجود ميزة الثيم و ميزة الزائر.</li>
+                <li>✦ تحكم سريع بالبحث في واجهة الادمن و المستخدم.</li>
               </ul>
             </div>
           </div>
@@ -478,6 +478,7 @@
               <span class="tech-chip">Dart</span>
               <span class="tech-chip">Shared Preferences</span>
               <span class="tech-chip">Json Files</span>
+              <span class="tech-chip">PDF</span>
             </div>
             <div class="features-list">
               <h4>الميزات الرئيسية</h4>
@@ -486,6 +487,60 @@
                 <li>✦ تخزين يدوم مدى الحياة بدون انترنت مع إمكانية نقل البيانات.</li>
                 <li>✦ميزة الفهرس لاختصار الكتابة بحرف واحد .</li>
                 <li>✦ تحويل السجلات الى pdf بشكل احترافي ومشابه تماماً لمحتوى الشاشة .</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card mobile-card">
+          <div class="project-screenshots"
+            style="position: relative; width: 100%; aspect-ratio: 60/120; overflow: hidden; border-radius: 12px;">
+
+            <img src="shop_debts.jpg" alt="ديون الدكان"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: rgba(0,0,0,0.05); border-radius: 12px;"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+
+            <!-- عنصر احتياطي يظهر في حالة فشل تحميل الصورة -->
+            <div class="screenshot-placeholder"
+              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+              <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; height: 100%;">
+                <rect x="2" y="2" width="56" height="116" rx="8" stroke="#00d4ff" stroke-width="1.5"
+                  fill="rgba(0,212,255,0.05)" />
+                <rect x="20" y="8" width="20" height="3" rx="1.5" fill="#00d4ff" opacity="0.4" />
+                <circle cx="30" cy="45" r="20" stroke="#00d4ff" stroke-width="0.5" fill="rgba(0,212,255,0.08)" />
+                <rect x="8" y="78" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+                <rect x="8" y="90" width="30" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+                <rect x="8" y="102" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+              </svg>
+              <p style="text-align: center; margin-top: 0.5rem;">أضف Screenshots للتطبيق</p>
+            </div>
+          </div>
+
+          <div class="project-info">
+            <div class="project-header">
+              <h3>ديون الدكان</h3>
+              <div class="os-badges">
+                <span class="os-badge android">Android</span>
+              </div>
+            </div>
+            <p class="project-desc">تطبيق دقيق صمم ليحل محل الدفتر و الآلة الحاسبة في محلات السوبر ماركت وما يشابهها , يتميز بمزايا متقدمة مثل حساب الميزانية و النسخ الاحتياطي وتحويل الفاتورة فوراًَ الى pdf
+              .</p>
+            <div class="tech-stack">
+              <span class="tech-chip">Flutter</span>
+              <span class="tech-chip">Dart</span>
+              <span class="tech-chip">Shared Preferences</span>
+              <span class="tech-chip">Json Files</span>
+              <span class="tech-chip">PDF</span>
+            </div>
+            <div class="features-list">
+              <h4>الميزات الرئيسية</h4>
+              <ul>
+                <li>✦ بسيط جداً للاستخدام بترابط دقيق جداً.</li>
+                <li>✦ تخزين يدوم مدى الحياة بدون انترنت.</li>
+                <li>✦ميزة الفهرس لاختصار الكتابة بحرف واحد .</li>
+                <li>✦إمكانية تحويل الفاتورة الى pdf في ثانيتين.</li>
+                <li>✦ميزة النسخ الاحتياطي.</li>
               </ul>
             </div>
           </div>
@@ -578,127 +633,127 @@
 
         <!-- مشروع لعبة 2 -->
         <!-- البطاقة الثالثة - Turkey Box -->
-<div class="project-card web-card">
-  <div class="project-screenshots" style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
-    <!-- صورة المشروع -->
-    <img src="turkey_box.png" 
-         alt="مشروع ويب 1"
-         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
-         onerror="this.style.display='none'; document.getElementById('placeholder-turkey').style.display='flex';" />
+        <div class="project-card web-card">
+          <div class="project-screenshots"
+            style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
+            <!-- صورة المشروع -->
+            <img src="turkey_box.png" alt="مشروع ويب 1"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
+              onerror="this.style.display='none'; document.getElementById('placeholder-turkey').style.display='flex';" />
 
-    <!-- عنصر احتياطي -->
-    <div id="placeholder-turkey" class="screenshot-placeholder"
-         style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
-      <span style="font-size: 3rem;">🌐</span>
-      <p style="color: #00d4ff; margin-top: 1rem;">مشروع ويب</p>
-    </div>
-  </div>
-  
-  <div class="project-info">
-    <div class="project-header">
-      <h3>موقع لحساب تكاليف مقاسات الصناديق بانواعها</h3>
-      <div class="os-badges">
-        <span class="os-badge web">Web</span>
+            <!-- عنصر احتياطي -->
+            <div id="placeholder-turkey" class="screenshot-placeholder"
+              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
+              <span style="font-size: 3rem;">🌐</span>
+              <p style="color: #00d4ff; margin-top: 1rem;">مشروع ويب</p>
+            </div>
+          </div>
+
+          <div class="project-info">
+            <div class="project-header">
+              <h3>موقع لحساب تكاليف مقاسات الصناديق بانواعها</h3>
+              <div class="os-badges">
+                <span class="os-badge web">Web</span>
+              </div>
+            </div>
+            <div class="tech-stack">
+              <span class="tech-chip">HTML</span>
+              <span class="tech-chip">CSS</span>
+              <span class="tech-chip">JavaScript</span>
+              <span class="tech-chip">Github</span>
+            </div>
+            <div class="features-list">
+              <h4>الميزات الرئيسية</h4>
+              <ul>
+                <li>✦ تناسق جيد بين الهاتف و الحاسوب</li>
+                <li>✦ حسابات دقيقة وفورية</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- البطاقة الرابعة - Naruto Balls -->
+        <div class="project-card web-card">
+          <div class="project-screenshots"
+            style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
+            <!-- صورة المشروع -->
+            <img src="naruto_balls.png" alt="مشروع لعبة 2"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
+              onerror="this.style.display='none'; document.getElementById('placeholder-naruto').style.display='flex';" />
+
+            <!-- عنصر احتياطي - مع ID مختلف -->
+            <div id="placeholder-naruto" class="screenshot-placeholder"
+              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
+              <span style="font-size: 3rem;">🎮</span>
+              <p style="color: #00d4ff; margin-top: 1rem;">مشروع لعبة</p>
+            </div>
+          </div>
+
+          <div class="project-info">
+            <div class="project-header">
+              <h3>لعبة 3D ل 5 كرات بقدرات مختلفة</h3>
+              <div class="os-badges">
+                <span class="os-badge web">Unity</span>
+              </div>
+            </div>
+            <div class="tech-stack">
+              <span class="tech-chip">Unity</span>
+              <span class="tech-chip">C#</span>
+              <span class="tech-chip">3D body</span>
+              <span class="tech-chip">NavMesh</span>
+            </div>
+            <div class="features-list">
+              <h4>الميزات الرئيسية</h4>
+              <ul>
+                <li>✦ الروبوتات تهاجم الكرات بعنف</li>
+                <li>✦ كل كرة لها قدرتها (التقليص-التضخيم-السرعة-القفز-اطلاق النار)</li>
+                <li>✦ تحكم عالي بكل كرة منفردة او بجميع الكرات معاً</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card web-card">
+          <div class="project-screenshots"
+            style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
+            <!-- صورة المشروع -->
+            <img src="crazy_billiard.png" alt="مشروع لعبة 3"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
+              onerror="this.style.display='none'; document.getElementById('placeholder-naruto').style.display='flex';" />
+
+            <!-- عنصر احتياطي - مع ID مختلف -->
+            <div id="placeholder-crazy-billiard" class="screenshot-placeholder"
+              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
+              <span style="font-size: 3rem;">🎮</span>
+              <p style="color: #00d4ff; margin-top: 1rem;">مشروع لعبة</p>
+            </div>
+          </div>
+
+          <div class="project-info">
+            <div class="project-header">
+              <h3>لعبة 3D تقليد للعبة البلياردو مع ميزات ذكاء اصطناعي لجنون الكرة السوداء</h3>
+              <div class="os-badges">
+                <span class="os-badge web">Unity</span>
+              </div>
+            </div>
+            <div class="tech-stack">
+              <span class="tech-chip">Unity</span>
+              <span class="tech-chip">C#</span>
+              <span class="tech-chip">3D body</span>
+              <span class="tech-chip">NavMesh</span>
+            </div>
+            <div class="features-list">
+              <h4>الميزات الرئيسية</h4>
+              <ul>
+                <li>✦ تحكم فريد في زاوية الرؤية </li>
+                <li>✦ الكرة السوداء يجن جنونها بين الحين والاخر وتقترب من الكرة البيضاء لزيادة نسب خسارة اللاعب</li>
+                <li>✦ نظام حساب نقاط وتمييز بين الكرات </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="tech-stack">
-      <span class="tech-chip">HTML</span>
-      <span class="tech-chip">CSS</span>
-      <span class="tech-chip">JavaScript</span>
-      <span class="tech-chip">Github</span>
-    </div>
-    <div class="features-list">
-      <h4>الميزات الرئيسية</h4>
-      <ul>
-        <li>✦ تناسق جيد بين الهاتف و الحاسوب</li>
-        <li>✦ حسابات دقيقة وفورية</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- البطاقة الرابعة - Naruto Balls -->
-<div class="project-card web-card">
-  <div class="project-screenshots" style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
-    <!-- صورة المشروع -->
-    <img src="naruto_balls.png" 
-         alt="مشروع لعبة 2"
-         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
-         onerror="this.style.display='none'; document.getElementById('placeholder-naruto').style.display='flex';" />
-
-    <!-- عنصر احتياطي - مع ID مختلف -->
-    <div id="placeholder-naruto" class="screenshot-placeholder"
-         style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
-      <span style="font-size: 3rem;">🎮</span>
-      <p style="color: #00d4ff; margin-top: 1rem;">مشروع لعبة</p>
-    </div>
-  </div>
-  
-  <div class="project-info">
-    <div class="project-header">
-      <h3>لعبة 3D ل 5 كرات بقدرات مختلفة</h3>
-      <div class="os-badges">
-        <span class="os-badge web">Unity</span>
-      </div>
-    </div>
-    <div class="tech-stack">
-      <span class="tech-chip">Unity</span>
-      <span class="tech-chip">C#</span>
-      <span class="tech-chip">3D body</span>
-      <span class="tech-chip">NavMesh</span>
-    </div>
-    <div class="features-list">
-      <h4>الميزات الرئيسية</h4>
-      <ul>
-        <li>✦ الروبوتات تهاجم الكرات بعنف</li>
-        <li>✦ كل كرة لها قدرتها (التقليص-التضخيم-السرعة-القفز-اطلاق النار)</li>
-        <li>✦ تحكم عالي بكل كرة منفردة او بجميع الكرات معاً</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="project-card web-card">
-  <div class="project-screenshots" style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
-    <!-- صورة المشروع -->
-    <img src="crazy_billiard.png" 
-         alt="مشروع لعبة 3"
-         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
-         onerror="this.style.display='none'; document.getElementById('placeholder-naruto').style.display='flex';" />
-
-    <!-- عنصر احتياطي - مع ID مختلف -->
-    <div id="placeholder-crazy-billiard" class="screenshot-placeholder"
-         style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
-      <span style="font-size: 3rem;">🎮</span>
-      <p style="color: #00d4ff; margin-top: 1rem;">مشروع لعبة</p>
-    </div>
-  </div>
-  
-  <div class="project-info">
-    <div class="project-header">
-      <h3>لعبة 3D تقليد للعبة البلياردو مع ميزات ذكاء اصطناعي لجنون الكرة السوداء</h3>
-      <div class="os-badges">
-        <span class="os-badge web">Unity</span>
-      </div>
-    </div>
-    <div class="tech-stack">
-      <span class="tech-chip">Unity</span>
-      <span class="tech-chip">C#</span>
-      <span class="tech-chip">3D body</span>
-      <span class="tech-chip">NavMesh</span>
-    </div>
-    <div class="features-list">
-      <h4>الميزات الرئيسية</h4>
-      <ul>
-        <li>✦ تحكم فريد في زاوية الرؤية </li>
-        <li>✦ الكرة السوداء يجن جنونها بين الحين والاخر وتقترب من الكرة البيضاء لزيادة نسب خسارة اللاعب</li>
-        <li>✦ نظام حساب نقاط وتمييز بين الكرات </li>
-      </ul>
-    </div>
-  </div>
-</div>
-</div>
-</div>
     <!-- ====== SECTION 5: SKILLS ====== -->
     <section class="skills section" id="skills">
       <div class="section-header">
