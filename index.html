@@ -103,7 +103,7 @@
             </svg>
 
             <!-- الصورة الشخصية -->
-            <img src="photo.jpg" alt="صورتي الشخصية"
+            <img src="images/photo.jpg" alt="صورتي الشخصية"
               style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"
               onerror="this.style.display='none'; document.querySelector('.fallback-svg').style.display='block';" />
           </div>
@@ -219,772 +219,722 @@
       <div class="section-line"></div>
     </div>
 
-    <div class="projects-tabs">
-      <button class="tab-btn active" data-tab="mobile">📱 تطبيقات الموبايل</button>
-      <button class="tab-btn" data-tab="more">💬 أخرى </button>
+    <!-- أزرار التصفية الجديدة بدلاً من tabs -->
+    <div class="projects-filter-btns" id="projectsFilterBtns">
+      <button class="filter-btn active" data-filter="all">📱 الكل</button>
+      <button class="filter-btn" data-filter="mobile">📱 تطبيقات الموبايل</button>
+      <button class="filter-btn" data-filter="ai">🧠 ذكاء اصطناعي</button>
+      <button class="filter-btn" data-filter="games">🎮 ألعاب كمبيوتر</button>
+      <button class="filter-btn" data-filter="desktop">💻 تطبيقات كمبيوتر</button>
+      <button class="filter-btn" data-filter="web">🌐 مواقع ويب</button>
     </div>
 
-    <!-- Mobile Projects -->
-    <div class="tab-content active" id="tab-mobile">
-      <div class="projects-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
-
-        <!-- Sywabot Card -->
-        <div class="project-card mobile-card">
-          <div class="project-screenshots"
-            style="position: relative; width: 100%; aspect-ratio: 60/120; overflow: hidden; border-radius: 12px;">
-            <!-- صورة Sywabot -->
-            <img src="sywabot.jpg" alt="sywabot"
-              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: rgba(0,0,0,0.05); border-radius: 12px;"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-
-            <!-- عنصر احتياطي يظهر في حالة فشل تحميل الصورة -->
-            <div class="screenshot-placeholder"
-              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-              <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg"
-                style="width: 100%; height: 100%;">
-                <rect x="2" y="2" width="56" height="116" rx="8" stroke="#00d4ff" stroke-width="1.5"
-                  fill="rgba(0,212,255,0.05)" />
-                <rect x="20" y="8" width="20" height="3" rx="1.5" fill="#00d4ff" opacity="0.4" />
-                <rect x="8" y="20" width="44" height="30" rx="3" fill="rgba(0,212,255,0.1)" stroke="#00d4ff"
-                  stroke-width="0.5" />
-                <rect x="8" y="58" width="20" height="20" rx="3" fill="rgba(0,212,255,0.1)" />
-                <rect x="32" y="58" width="20" height="20" rx="3" fill="rgba(0,212,255,0.1)" />
-                <rect x="8" y="84" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
-                <rect x="8" y="96" width="30" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
-              </svg>
-              <p style="text-align: center; margin-top: 0.5rem;">أضف Screenshots للتطبيق</p>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-header">
-              <h3>sywabot</h3>
-              <div class="os-badges">
-                <span class="os-badge android">Android</span>
-              </div>
-            </div>
-            <p class="project-desc">تطبيق محادثة ذكي يساعد المستخدمين على ايجاد رحلة السفر المناسبة لهم.</p>
-            <div class="tech-stack">
-              <span class="tech-chip">Flutter</span>
-              <span class="tech-chip">Dart</span>
-              <span class="tech-chip">Rasa Chatbot</span>
-              <span class="tech-chip">Python Backend</span>
-              <span class="tech-chip">Render server</span>
-            </div>
-            <div class="features-list">
-              <h4>الميزات الرئيسية</h4>
-              <ul>
-                <li>✦ سرعة في الاستجابة .</li>
-                <li>✦ ميزة ذكية لاختصار الاجوبة .</li>
-                <li>✦ ضمان استجابة صحيحة دوماً .</li>
-              </ul>
-            </div>
+    <!-- حاوية المشاريع الموحدة -->
+    <div class="projects-grid" id="allProjectsGrid">
+      <!-- 1. Sywabot (mobile + ai) -->
+      <div class="project-card mobile-card" data-category="mobile ai">
+        <div class="project-screenshots"
+          style="position: relative; width: 100%; aspect-ratio: 60/120; overflow: hidden; border-radius: 12px;">
+          <img src="images/sywabot.jpg" alt="sywabot"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: rgba(0,0,0,0.05); border-radius: 12px;"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="screenshot-placeholder"
+            style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+              <rect x="2" y="2" width="56" height="116" rx="8" stroke="#00d4ff" stroke-width="1.5"
+                fill="rgba(0,212,255,0.05)" />
+              <rect x="20" y="8" width="20" height="3" rx="1.5" fill="#00d4ff" opacity="0.4" />
+              <rect x="8" y="20" width="44" height="30" rx="3" fill="rgba(0,212,255,0.1)" stroke="#00d4ff"
+                stroke-width="0.5" />
+              <rect x="8" y="58" width="20" height="20" rx="3" fill="rgba(0,212,255,0.1)" />
+              <rect x="32" y="58" width="20" height="20" rx="3" fill="rgba(0,212,255,0.1)" />
+              <rect x="8" y="84" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+              <rect x="8" y="96" width="30" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+            </svg>
+            <p style="text-align: center; margin-top: 0.5rem;">أضف Screenshots للتطبيق</p>
           </div>
         </div>
-
-        <!-- المحاضر الذكي Card -->
-        <div class="project-card mobile-card">
-          <div class="project-screenshots"
-            style="position: relative; width: 100%; aspect-ratio: 60/120; overflow: hidden; border-radius: 12px;">
-            <!-- صورة المحاضر الذكي -->
-            <img src="smart_lectorer.jpg" alt="المحاضر الذكي"
-              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: rgba(0,0,0,0.05); border-radius: 12px;"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-
-            <!-- عنصر احتياطي يظهر في حالة فشل تحميل الصورة -->
-            <div class="screenshot-placeholder"
-              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-              <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg"
-                style="width: 100%; height: 100%;">
-                <rect x="2" y="2" width="56" height="116" rx="8" stroke="#00d4ff" stroke-width="1.5"
-                  fill="rgba(0,212,255,0.05)" />
-                <rect x="20" y="8" width="20" height="3" rx="1.5" fill="#00d4ff" opacity="0.4" />
-                <circle cx="30" cy="45" r="20" stroke="#00d4ff" stroke-width="0.5" fill="rgba(0,212,255,0.08)" />
-                <rect x="8" y="78" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
-                <rect x="8" y="90" width="30" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
-                <rect x="8" y="102" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
-              </svg>
-              <p style="text-align: center; margin-top: 0.5rem;">أضف Screenshots للتطبيق</p>
+        <div class="project-info">
+          <div class="project-header">
+            <h3>sywabot</h3>
+            <div class="os-badges">
+              <span class="os-badge android">Android</span>
             </div>
           </div>
-
-          <div class="project-info">
-            <div class="project-header">
-              <h3>المحاضر الذكي</h3>
-              <div class="os-badges">
-                <span class="os-badge android">Android</span>
-              </div>
-            </div>
-            <p class="project-desc">تطبيق لتحويل الصوت الى نص للأستفادة من المحاضرات ومساعدة الصم بشكل مباشر على ميكرفون
-              حي .</p>
-            <div class="tech-stack">
-              <span class="tech-chip">Flutter</span>
-              <span class="tech-chip">Dart</span>
-              <span class="tech-chip">whisper model</span>
-              <span class="tech-chip">Python Backend</span>
-              <span class="tech-chip">PDF</span>
-            </div>
-            <div class="features-list">
-              <h4>الميزات الرئيسية</h4>
-              <ul>
-                <li>✦ ميكرفون ذكي يتفاعل بشكل جيد حتى مع وجود ضوضاء و كشف السكوت .</li>
-                <li>✦ امكانية التحويل الى pdf فوراًَ .</li>
-                <li>✦ وجود نموذج جيميناي لتلخيص المحاضرات بعد الحفظ .</li>
-              </ul>
-            </div>
+          <p class="project-desc">تطبيق محادثة ذكي يساعد المستخدمين على ايجاد رحلة السفر المناسبة لهم.</p>
+          <div class="tech-stack">
+            <span class="tech-chip">Flutter</span>
+            <span class="tech-chip">Dart</span>
+            <span class="tech-chip">Rasa Chatbot</span>
+            <span class="tech-chip">Python Backend</span>
+            <span class="tech-chip">Render server</span>
+          </div>
+          <div class="features-list">
+            <h4>الميزات الرئيسية</h4>
+            <ul>
+              <li>✦ سرعة في الاستجابة .</li>
+              <li>✦ ميزة ذكية لاختصار الاجوبة .</li>
+              <li>✦ ضمان استجابة صحيحة دوماً .</li>
+            </ul>
           </div>
         </div>
+      </div>
 
-        <div class="project-card mobile-card">
-          <div class="project-screenshots"
-            style="position: relative; width: 100%; aspect-ratio: 60/120; overflow: hidden; border-radius: 12px;">
-
-            <img src="minex.jpg" alt="minex"
-              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: rgba(0,0,0,0.05); border-radius: 12px;"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-
-            <!-- عنصر احتياطي يظهر في حالة فشل تحميل الصورة -->
-            <div class="screenshot-placeholder"
-              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-              <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg"
-                style="width: 100%; height: 100%;">
-                <rect x="2" y="2" width="56" height="116" rx="8" stroke="#00d4ff" stroke-width="1.5"
-                  fill="rgba(0,212,255,0.05)" />
-                <rect x="20" y="8" width="20" height="3" rx="1.5" fill="#00d4ff" opacity="0.4" />
-                <circle cx="30" cy="45" r="20" stroke="#00d4ff" stroke-width="0.5" fill="rgba(0,212,255,0.08)" />
-                <rect x="8" y="78" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
-                <rect x="8" y="90" width="30" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
-                <rect x="8" y="102" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
-              </svg>
-              <p style="text-align: center; margin-top: 0.5rem;">أضف Screenshots للتطبيق</p>
-            </div>
-          </div>
-
-          <div class="project-info">
-            <div class="project-header">
-              <h3>minex</h3>
-              <div class="os-badges">
-                <span class="os-badge android">Android</span>
-              </div>
-            </div>
-            <p class="project-desc">تطبيق صمم للتجارة الالكترونية بين السوريين يشبه تطبيق الفيسبوك تماماً في طريقة عمله
-              .</p>
-            <div class="tech-stack">
-              <span class="tech-chip">Flutter</span>
-              <span class="tech-chip">Dart</span>
-              <span class="tech-chip">Laravel</span>
-              <span class="tech-chip">PHP Backend</span>
-              <span class="tech-chip">Firebase Notifications</span>
-              <span class="tech-chip">Hostinger hosting</span>
-            </div>
-            <div class="features-list">
-              <h4>الميزات الرئيسية</h4>
-              <ul>
-                <li>✦ واجهة ادمن متقدمة تحوي تحكم شامل.</li>
-                <li>✦ رسائل و اشعارات و منشورات و تعليقات واعلانات مشابهة لآلية عمل فيسبوك.</li>
-                <li>✦ سرعة في الاستجابة و وجود ميزة الثيم و ميزة الزائر.</li>
-                <li>✦ تحكم سريع بالبحث في واجهة الادمن و المستخدم.</li>
-              </ul>
-            </div>
+      <!-- 2. المحاضر الذكي (mobile + ai) -->
+      <div class="project-card mobile-card" data-category="mobile ai">
+        <div class="project-screenshots"
+          style="position: relative; width: 100%; aspect-ratio: 60/120; overflow: hidden; border-radius: 12px;">
+          <img src="images/smart_lectorer.jpg" alt="المحاضر الذكي"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: rgba(0,0,0,0.05); border-radius: 12px;"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="screenshot-placeholder"
+            style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+              <rect x="2" y="2" width="56" height="116" rx="8" stroke="#00d4ff" stroke-width="1.5"
+                fill="rgba(0,212,255,0.05)" />
+              <rect x="20" y="8" width="20" height="3" rx="1.5" fill="#00d4ff" opacity="0.4" />
+              <circle cx="30" cy="45" r="20" stroke="#00d4ff" stroke-width="0.5" fill="rgba(0,212,255,0.08)" />
+              <rect x="8" y="78" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+              <rect x="8" y="90" width="30" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+              <rect x="8" y="102" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+            </svg>
+            <p style="text-align: center; margin-top: 0.5rem;">أضف Screenshots للتطبيق</p>
           </div>
         </div>
-
-        <div class="project-card mobile-card">
-          <div class="project-screenshots"
-            style="position: relative; width: 100%; aspect-ratio: 60/120; overflow: hidden; border-radius: 12px;">
-
-            <img src="workers_wages.jpg" alt="أجرة العمال"
-              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: rgba(0,0,0,0.05); border-radius: 12px;"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-
-            <!-- عنصر احتياطي يظهر في حالة فشل تحميل الصورة -->
-            <div class="screenshot-placeholder"
-              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-              <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg"
-                style="width: 100%; height: 100%;">
-                <rect x="2" y="2" width="56" height="116" rx="8" stroke="#00d4ff" stroke-width="1.5"
-                  fill="rgba(0,212,255,0.05)" />
-                <rect x="20" y="8" width="20" height="3" rx="1.5" fill="#00d4ff" opacity="0.4" />
-                <circle cx="30" cy="45" r="20" stroke="#00d4ff" stroke-width="0.5" fill="rgba(0,212,255,0.08)" />
-                <rect x="8" y="78" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
-                <rect x="8" y="90" width="30" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
-                <rect x="8" y="102" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
-              </svg>
-              <p style="text-align: center; margin-top: 0.5rem;">أضف Screenshots للتطبيق</p>
+        <div class="project-info">
+          <div class="project-header">
+            <h3>المحاضر الذكي</h3>
+            <div class="os-badges">
+              <span class="os-badge android">Android</span>
             </div>
           </div>
-
-          <div class="project-info">
-            <div class="project-header">
-              <h3>أجرة العمال</h3>
-              <div class="os-badges">
-                <span class="os-badge android">Android</span>
-              </div>
-            </div>
-            <p class="project-desc">تطبيق بسيط صمم لحل مشكلة تعدد العملات التي يطلبها العمال وسهولة حساب اجرتهم عن طريق
-              تسجيل الحضور بضغطة زر
-              .</p>
-            <div class="tech-stack">
-              <span class="tech-chip">Flutter</span>
-              <span class="tech-chip">Dart</span>
-              <span class="tech-chip">Shared Preferences</span>
-            </div>
-            <div class="features-list">
-              <h4>الميزات الرئيسية</h4>
-              <ul>
-                <li>✦ بسيط جداً للاستخدام بترابط دقيق جداً.</li>
-                <li>✦ تخزين يدوم مدى الحياة بدون انترنت.</li>
-                <li>✦ميزة الفهرس لاختصار الكتابة بحرف واحد .</li>
-              </ul>
-            </div>
+          <p class="project-desc">تطبيق لتحويل الصوت الى نص للأستفادة من المحاضرات ومساعدة الصم بشكل مباشر على ميكرفون
+            حي .</p>
+          <div class="tech-stack">
+            <span class="tech-chip">Flutter</span>
+            <span class="tech-chip">Dart</span>
+            <span class="tech-chip">whisper model</span>
+            <span class="tech-chip">Python Backend</span>
+            <span class="tech-chip">PDF</span>
+          </div>
+          <div class="features-list">
+            <h4>الميزات الرئيسية</h4>
+            <ul>
+              <li>✦ ميكرفون ذكي يتفاعل بشكل جيد حتى مع وجود ضوضاء و كشف السكوت .</li>
+              <li>✦ امكانية التحويل الى pdf فوراًَ .</li>
+              <li>✦ وجود نموذج جيميناي لتلخيص المحاضرات بعد الحفظ .</li>
+            </ul>
           </div>
         </div>
+      </div>
 
-        <div class="project-card mobile-card">
-          <div class="project-screenshots"
-            style="position: relative; width: 100%; aspect-ratio: 60/120; overflow: hidden; border-radius: 12px;">
-
-            <img src="alhalmarket.jpg" alt="محاسب سوق الهال"
-              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: rgba(0,0,0,0.05); border-radius: 12px;"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-
-            <!-- عنصر احتياطي يظهر في حالة فشل تحميل الصورة -->
-            <div class="screenshot-placeholder"
-              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-              <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg"
-                style="width: 100%; height: 100%;">
-                <rect x="2" y="2" width="56" height="116" rx="8" stroke="#00d4ff" stroke-width="1.5"
-                  fill="rgba(0,212,255,0.05)" />
-                <rect x="20" y="8" width="20" height="3" rx="1.5" fill="#00d4ff" opacity="0.4" />
-                <circle cx="30" cy="45" r="20" stroke="#00d4ff" stroke-width="0.5" fill="rgba(0,212,255,0.08)" />
-                <rect x="8" y="78" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
-                <rect x="8" y="90" width="30" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
-                <rect x="8" y="102" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
-              </svg>
-              <p style="text-align: center; margin-top: 0.5rem;">أضف Screenshots للتطبيق</p>
-            </div>
-          </div>
-
-          <div class="project-info">
-            <div class="project-header">
-              <h3>محاسب سوق الهال</h3>
-              <div class="os-badges">
-                <span class="os-badge android">Android</span>
-              </div>
-            </div>
-            <p class="project-desc">تطبيق محاسبي ضخم صمم كتطبيق اندرويد مصغر لنسخة الويندوز الموجودة بالسوق يساويه في كل
-              الميزات يظهر بشكل مقلوب لعرض جميع العناصر بنفس الشاشة
-              .</p>
-            <div class="tech-stack">
-              <span class="tech-chip">Flutter</span>
-              <span class="tech-chip">Dart</span>
-              <span class="tech-chip">Shared Preferences</span>
-              <span class="tech-chip">Json Files</span>
-              <span class="tech-chip">PDF</span>
-            </div>
-            <div class="features-list">
-              <h4>الميزات الرئيسية</h4>
-              <ul>
-                <li>✦ بسيط الاستخدام يعرض كل شيء بنفس الشاشة بطريقة منافسة للحاسوب .</li>
-                <li>✦ تخزين يدوم مدى الحياة بدون انترنت مع إمكانية نقل البيانات.</li>
-                <li>✦ميزة الفهرس لاختصار الكتابة بحرف واحد .</li>
-                <li>✦ تحويل السجلات الى pdf بشكل احترافي ومشابه تماماً لمحتوى الشاشة .</li>
-              </ul>
-            </div>
+      <!-- 3. minex (mobile) -->
+      <div class="project-card mobile-card" data-category="mobile">
+        <div class="project-screenshots"
+          style="position: relative; width: 100%; aspect-ratio: 60/120; overflow: hidden; border-radius: 12px;">
+          <img src="images/minex.jpg" alt="minex"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: rgba(0,0,0,0.05); border-radius: 12px;"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="screenshot-placeholder"
+            style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+              <rect x="2" y="2" width="56" height="116" rx="8" stroke="#00d4ff" stroke-width="1.5"
+                fill="rgba(0,212,255,0.05)" />
+              <rect x="20" y="8" width="20" height="3" rx="1.5" fill="#00d4ff" opacity="0.4" />
+              <circle cx="30" cy="45" r="20" stroke="#00d4ff" stroke-width="0.5" fill="rgba(0,212,255,0.08)" />
+              <rect x="8" y="78" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+              <rect x="8" y="90" width="30" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+              <rect x="8" y="102" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+            </svg>
+            <p style="text-align: center; margin-top: 0.5rem;">أضف Screenshots للتطبيق</p>
           </div>
         </div>
-
-        <div class="project-card mobile-card">
-          <div class="project-screenshots"
-            style="position: relative; width: 100%; aspect-ratio: 60/120; overflow: hidden; border-radius: 12px;">
-
-            <img src="shop_debts.jpg" alt="ديون الدكان"
-              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: rgba(0,0,0,0.05); border-radius: 12px;"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-
-            <!-- عنصر احتياطي يظهر في حالة فشل تحميل الصورة -->
-            <div class="screenshot-placeholder"
-              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-              <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg"
-                style="width: 100%; height: 100%;">
-                <rect x="2" y="2" width="56" height="116" rx="8" stroke="#00d4ff" stroke-width="1.5"
-                  fill="rgba(0,212,255,0.05)" />
-                <rect x="20" y="8" width="20" height="3" rx="1.5" fill="#00d4ff" opacity="0.4" />
-                <circle cx="30" cy="45" r="20" stroke="#00d4ff" stroke-width="0.5" fill="rgba(0,212,255,0.08)" />
-                <rect x="8" y="78" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
-                <rect x="8" y="90" width="30" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
-                <rect x="8" y="102" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
-              </svg>
-              <p style="text-align: center; margin-top: 0.5rem;">أضف Screenshots للتطبيق</p>
+        <div class="project-info">
+          <div class="project-header">
+            <h3>minex</h3>
+            <div class="os-badges">
+              <span class="os-badge android">Android</span>
             </div>
           </div>
-
-          <div class="project-info">
-            <div class="project-header">
-              <h3>ديون الدكان</h3>
-              <div class="os-badges">
-                <span class="os-badge android">Android</span>
-              </div>
-            </div>
-            <p class="project-desc">تطبيق دقيق صمم ليحل محل الدفتر و الآلة الحاسبة في محلات السوبر ماركت وما يشابهها , يتميز بمزايا متقدمة مثل حساب الميزانية و النسخ الاحتياطي وتحويل الفاتورة فوراًَ الى pdf
-              .</p>
-            <div class="tech-stack">
-              <span class="tech-chip">Flutter</span>
-              <span class="tech-chip">Dart</span>
-              <span class="tech-chip">Shared Preferences</span>
-              <span class="tech-chip">Json Files</span>
-              <span class="tech-chip">PDF</span>
-            </div>
-            <div class="features-list">
-              <h4>الميزات الرئيسية</h4>
-              <ul>
-                <li>✦ بسيط جداً للاستخدام بترابط دقيق جداً.</li>
-                <li>✦ تخزين يدوم مدى الحياة بدون انترنت.</li>
-                <li>✦ميزة الفهرس لاختصار الكتابة بحرف واحد .</li>
-                <li>✦إمكانية تحويل الفاتورة الى pdf في ثانيتين.</li>
-                <li>✦ميزة النسخ الاحتياطي.</li>
-              </ul>
-            </div>
+          <p class="project-desc">تطبيق صمم للتجارة الالكترونية بين السوريين يشبه تطبيق الفيسبوك تماماً في طريقة عمله .
+          </p>
+          <div class="tech-stack">
+            <span class="tech-chip">Flutter</span>
+            <span class="tech-chip">Dart</span>
+            <span class="tech-chip">Laravel</span>
+            <span class="tech-chip">PHP Backend</span>
+            <span class="tech-chip">Firebase Notifications</span>
+            <span class="tech-chip">Hostinger hosting</span>
+          </div>
+          <div class="features-list">
+            <h4>الميزات الرئيسية</h4>
+            <ul>
+              <li>✦ واجهة ادمن متقدمة تحوي تحكم شامل.</li>
+              <li>✦ رسائل و اشعارات و منشورات و تعليقات واعلانات مشابهة لآلية عمل فيسبوك.</li>
+              <li>✦ سرعة في الاستجابة و وجود ميزة الثيم و ميزة الزائر.</li>
+              <li>✦ تحكم سريع بالبحث في واجهة الادمن و المستخدم.</li>
+            </ul>
           </div>
         </div>
+      </div>
 
-      </div> <!-- إغلاق projects-grid -->
-    </div> <!-- إغلاق tab-content -->
-
-    <!-- More Projects (قسم أخرى) -->
-    <div class="tab-content" id="tab-more">
-      <div class="projects-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
-
-          <div class="project-card web-card">
-          <div class="project-screenshots"
-            style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
-            <!-- صورة المشروع -->
-            <img src="original_accounting.jpg" alt="تطبيق كمبيوتر"
-              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
-              onerror="this.style.display='none'; document.getElementById('placeholder-turkey').style.display='flex';" />
-
-            <!-- عنصر احتياطي مع id محدد -->
-            <div id="placeholder-turkey" class="screenshot-placeholder"
-              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
-              <span style="font-size: 3rem;">🌐</span>
-              <p style="color: #00d4ff; margin-top: 1rem;">تطبيق كمبيوتر</p>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-header">
-              <h3>تطبيق محاسبي للتجارة بالبضائع </h3>
-              <div class="os-badges">
-                <span class="os-badge web">windows</span>
-              </div>
-            </div>
-            <div class="tech-stack">
-              <span class="tech-chip">Flutter</span>
-              <span class="tech-chip">Dart</span>
-              <span class="tech-chip">Shared Preferences</span>
-              <span class="tech-chip">Json Files</span>
-              <span class="tech-chip">PDF</span>
-            </div>
-            <div class="features-list">
-              <h4>الميزات الرئيسية</h4>
-              <ul>
-                <li>✦ إمكانية تخزين البيانات بشكل دائم ومشاركتها لمتعدد الاجهزة</li>
-                <li>✦ ميزة لتصدير فواتير و تفاصيل الى pdf و النسخ الاحتياطي</li>
-                <li>✦ سرعة الكتابة واختصار الكلمات بالارقام و الحروف</li>
-                <li>✦ استغناء كامل عن الفأرة سلاسة كبيرة بالكتابة</li>
-              </ul>
-            </div>
+      <!-- 4. أجرة العمال (mobile) -->
+      <div class="project-card mobile-card" data-category="mobile">
+        <div class="project-screenshots"
+          style="position: relative; width: 100%; aspect-ratio: 60/120; overflow: hidden; border-radius: 12px;">
+          <img src="images/workers_wages.jpg" alt="أجرة العمال"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: rgba(0,0,0,0.05); border-radius: 12px;"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="screenshot-placeholder"
+            style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+              <rect x="2" y="2" width="56" height="116" rx="8" stroke="#00d4ff" stroke-width="1.5"
+                fill="rgba(0,212,255,0.05)" />
+              <rect x="20" y="8" width="20" height="3" rx="1.5" fill="#00d4ff" opacity="0.4" />
+              <circle cx="30" cy="45" r="20" stroke="#00d4ff" stroke-width="0.5" fill="rgba(0,212,255,0.08)" />
+              <rect x="8" y="78" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+              <rect x="8" y="90" width="30" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+              <rect x="8" y="102" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+            </svg>
+            <p style="text-align: center; margin-top: 0.5rem;">أضف Screenshots للتطبيق</p>
           </div>
         </div>
-
-        <!-- مشروع بايثون 1 -->
-        <div class="project-card web-card">
-          <div class="project-screenshots"
-            style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
-            <!-- صورة المشروع -->
-            <img src="slides_puzzle.png" alt="مشروع بايثون"
-              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
-              onerror="this.style.display='none'; document.getElementById('placeholder-turkey').style.display='flex';" />
-
-            <!-- عنصر احتياطي مع id محدد -->
-            <div id="placeholder-turkey" class="screenshot-placeholder"
-              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
-              <span style="font-size: 3rem;">🌐</span>
-              <p style="color: #00d4ff; margin-top: 1rem;">مشروع بايثون</p>
+        <div class="project-info">
+          <div class="project-header">
+            <h3>أجرة العمال</h3>
+            <div class="os-badges">
+              <span class="os-badge android">Android</span>
             </div>
           </div>
-          <div class="project-info">
-            <div class="project-header">
-              <h3>خوارزمية ذكية لحل الغاز لعبة المكعبات المنزلقة</h3>
-              <div class="os-badges">
-                <span class="os-badge web">Python</span>
-              </div>
-            </div>
-            <div class="tech-stack">
-              <span class="tech-chip">python</span>
-              <span class="tech-chip">heapq</span>
-              <span class="tech-chip">copy</span>
-              <span class="tech-chip">typing</span>
-            </div>
-            <div class="features-list">
-              <h4>الميزات الرئيسية</h4>
-              <ul>
-                <li>✦ حل جميع الغاز اللعبة مهما بلغت صعوبتها </li>
-                <li>✦ تصميم مذهل وكأنها اللعبة نفسها</li>
-              </ul>
-            </div>
+          <p class="project-desc">تطبيق بسيط صمم لحل مشكلة تعدد العملات التي يطلبها العمال وسهولة حساب اجرتهم عن طريق
+            تسجيل الحضور بضغطة زر .</p>
+          <div class="tech-stack">
+            <span class="tech-chip">Flutter</span>
+            <span class="tech-chip">Dart</span>
+            <span class="tech-chip">Shared Preferences</span>
+          </div>
+          <div class="features-list">
+            <h4>الميزات الرئيسية</h4>
+            <ul>
+              <li>✦ بسيط جداً للاستخدام بترابط دقيق جداً.</li>
+              <li>✦ تخزين يدوم مدى الحياة بدون انترنت.</li>
+              <li>✦ميزة الفهرس لاختصار الكتابة بحرف واحد .</li>
+            </ul>
           </div>
         </div>
+      </div>
 
-        <div class="project-card web-card">
-          <div class="project-screenshots"
-            style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
-            <!-- صورة المشروع -->
-            <img src="tank_gun.png" alt="مشروع لعبة 1"
-              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
-              onerror="this.style.display='none'; document.getElementById('placeholder-turkey').style.display='flex';" />
-
-            <!-- عنصر احتياطي مع id محدد -->
-            <div id="placeholder-turkey" class="screenshot-placeholder"
-              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
-              <span style="font-size: 3rem;">🌐</span>
-              <p style="color: #00d4ff; margin-top: 1rem;">مشروع لعبة</p>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-header">
-              <h3> لعبة 3D لدبابة تقصف الروبوتات المتحركة</h3>
-              <div class="os-badges">
-                <span class="os-badge web">Unity Hub</span>
-              </div>
-            </div>
-            <div class="tech-stack">
-              <span class="tech-chip">Unity Hub</span>
-              <span class="tech-chip">C#</span>
-              <span class="tech-chip">3D body</span>
-              <span class="tech-chip">NavMesh</span>
-            </div>
-            <div class="features-list">
-              <h4>الميزات الرئيسية</h4>
-              <ul>
-                <li>✦ الروبوتات تهرب من الدبابة</li>
-                <li>✦ ميزة zoom وتاثير قصف وتحليق الروبوتات</li>
-                <li>✦ تضاريس واقعية تحاكي اراضي حروب الدبابات</li>
-              </ul>
-            </div>
+      <!-- 5. محاسب سوق الهال (mobile) -->
+      <div class="project-card mobile-card" data-category="mobile">
+        <div class="project-screenshots"
+          style="position: relative; width: 100%; aspect-ratio: 60/120; overflow: hidden; border-radius: 12px;">
+          <img src="images/alhalmarket.jpg" alt="محاسب سوق الهال"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: rgba(0,0,0,0.05); border-radius: 12px;"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="screenshot-placeholder"
+            style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+              <rect x="2" y="2" width="56" height="116" rx="8" stroke="#00d4ff" stroke-width="1.5"
+                fill="rgba(0,212,255,0.05)" />
+              <rect x="20" y="8" width="20" height="3" rx="1.5" fill="#00d4ff" opacity="0.4" />
+              <circle cx="30" cy="45" r="20" stroke="#00d4ff" stroke-width="0.5" fill="rgba(0,212,255,0.08)" />
+              <rect x="8" y="78" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+              <rect x="8" y="90" width="30" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+              <rect x="8" y="102" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+            </svg>
+            <p style="text-align: center; margin-top: 0.5rem;">أضف Screenshots للتطبيق</p>
           </div>
         </div>
-
-        <!-- مشروع لعبة 2 -->
-        <!-- البطاقة الثالثة - Turkey Box -->
-        <div class="project-card web-card">
-          <div class="project-screenshots"
-            style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
-            <!-- صورة المشروع -->
-            <img src="turkey_box.png" alt="مشروع ويب 1"
-              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
-              onerror="this.style.display='none'; document.getElementById('placeholder-turkey').style.display='flex';" />
-
-            <!-- عنصر احتياطي -->
-            <div id="placeholder-turkey" class="screenshot-placeholder"
-              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
-              <span style="font-size: 3rem;">🌐</span>
-              <p style="color: #00d4ff; margin-top: 1rem;">مشروع ويب</p>
+        <div class="project-info">
+          <div class="project-header">
+            <h3>محاسب سوق الهال</h3>
+            <div class="os-badges">
+              <span class="os-badge android">Android</span>
             </div>
           </div>
-
-          <div class="project-info">
-            <div class="project-header">
-              <h3>موقع لحساب تكاليف مقاسات الصناديق بانواعها</h3>
-              <div class="os-badges">
-                <span class="os-badge web">Web</span>
-              </div>
-            </div>
-            <div class="tech-stack">
-              <span class="tech-chip">HTML</span>
-              <span class="tech-chip">CSS</span>
-              <span class="tech-chip">JavaScript</span>
-              <span class="tech-chip">Github</span>
-            </div>
-            <div class="features-list">
-              <h4>الميزات الرئيسية</h4>
-              <ul>
-                <li>✦ تناسق جيد بين الهاتف و الحاسوب</li>
-                <li>✦ حسابات دقيقة وفورية</li>
-              </ul>
-            </div>
+          <p class="project-desc">تطبيق محاسبي ضخم صمم كتطبيق اندرويد مصغر لنسخة الويندوز الموجودة بالسوق يساويه في كل
+            الميزات يظهر بشكل مقلوب لعرض جميع العناصر بنفس الشاشة .</p>
+          <div class="tech-stack">
+            <span class="tech-chip">Flutter</span>
+            <span class="tech-chip">Dart</span>
+            <span class="tech-chip">Shared Preferences</span>
+            <span class="tech-chip">Json Files</span>
+            <span class="tech-chip">PDF</span>
+          </div>
+          <div class="features-list">
+            <h4>الميزات الرئيسية</h4>
+            <ul>
+              <li>✦ بسيط الاستخدام يعرض كل شيء بنفس الشاشة بطريقة منافسة للحاسوب .</li>
+              <li>✦ تخزين يدوم مدى الحياة بدون انترنت مع إمكانية نقل البيانات.</li>
+              <li>✦ميزة الفهرس لاختصار الكتابة بحرف واحد .</li>
+              <li>✦ تحويل السجلات الى pdf بشكل احترافي ومشابه تماماً لمحتوى الشاشة .</li>
+            </ul>
           </div>
         </div>
+      </div>
 
-        <!-- البطاقة الرابعة - Naruto Balls -->
-        <div class="project-card web-card">
-          <div class="project-screenshots"
-            style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
-            <!-- صورة المشروع -->
-            <img src="naruto_balls.png" alt="مشروع لعبة 2"
-              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
-              onerror="this.style.display='none'; document.getElementById('placeholder-naruto').style.display='flex';" />
-
-            <!-- عنصر احتياطي - مع ID مختلف -->
-            <div id="placeholder-naruto" class="screenshot-placeholder"
-              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
-              <span style="font-size: 3rem;">🎮</span>
-              <p style="color: #00d4ff; margin-top: 1rem;">مشروع لعبة</p>
-            </div>
-          </div>
-
-          <div class="project-info">
-            <div class="project-header">
-              <h3>لعبة 3D ل 5 كرات بقدرات مختلفة</h3>
-              <div class="os-badges">
-                <span class="os-badge web">Unity</span>
-              </div>
-            </div>
-            <div class="tech-stack">
-              <span class="tech-chip">Unity</span>
-              <span class="tech-chip">C#</span>
-              <span class="tech-chip">3D body</span>
-              <span class="tech-chip">NavMesh</span>
-            </div>
-            <div class="features-list">
-              <h4>الميزات الرئيسية</h4>
-              <ul>
-                <li>✦ الروبوتات تهاجم الكرات بعنف</li>
-                <li>✦ كل كرة لها قدرتها (التقليص-التضخيم-السرعة-القفز-اطلاق النار)</li>
-                <li>✦ تحكم عالي بكل كرة منفردة او بجميع الكرات معاً</li>
-              </ul>
-            </div>
+      <!-- 6. ديون الدكان (mobile) -->
+      <div class="project-card mobile-card" data-category="mobile">
+        <div class="project-screenshots"
+          style="position: relative; width: 100%; aspect-ratio: 60/120; overflow: hidden; border-radius: 12px;">
+          <img src="images/shop_debts.jpg" alt="ديون الدكان"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: rgba(0,0,0,0.05); border-radius: 12px;"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="screenshot-placeholder"
+            style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+              <rect x="2" y="2" width="56" height="116" rx="8" stroke="#00d4ff" stroke-width="1.5"
+                fill="rgba(0,212,255,0.05)" />
+              <rect x="20" y="8" width="20" height="3" rx="1.5" fill="#00d4ff" opacity="0.4" />
+              <circle cx="30" cy="45" r="20" stroke="#00d4ff" stroke-width="0.5" fill="rgba(0,212,255,0.08)" />
+              <rect x="8" y="78" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+              <rect x="8" y="90" width="30" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+              <rect x="8" y="102" width="44" height="6" rx="3" fill="rgba(0,212,255,0.1)" />
+            </svg>
+            <p style="text-align: center; margin-top: 0.5rem;">أضف Screenshots للتطبيق</p>
           </div>
         </div>
-
-        <div class="project-card web-card">
-          <div class="project-screenshots"
-            style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
-            <!-- صورة المشروع -->
-            <img src="crazy_billiard.png" alt="مشروع لعبة 3"
-              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
-              onerror="this.style.display='none'; document.getElementById('placeholder-naruto').style.display='flex';" />
-
-            <!-- عنصر احتياطي - مع ID مختلف -->
-            <div id="placeholder-crazy-billiard" class="screenshot-placeholder"
-              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
-              <span style="font-size: 3rem;">🎮</span>
-              <p style="color: #00d4ff; margin-top: 1rem;">مشروع لعبة</p>
+        <div class="project-info">
+          <div class="project-header">
+            <h3>ديون الدكان</h3>
+            <div class="os-badges">
+              <span class="os-badge android">Android</span>
             </div>
           </div>
+          <p class="project-desc">تطبيق دقيق صمم ليحل محل الدفتر و الآلة الحاسبة في محلات السوبر ماركت وما يشابهها ,
+            يتميز بمزايا متقدمة مثل حساب الميزانية و النسخ الاحتياطي وتحويل الفاتورة فوراًَ الى pdf .</p>
+          <div class="tech-stack">
+            <span class="tech-chip">Flutter</span>
+            <span class="tech-chip">Dart</span>
+            <span class="tech-chip">Shared Preferences</span>
+            <span class="tech-chip">Json Files</span>
+            <span class="tech-chip">PDF</span>
+          </div>
+          <div class="features-list">
+            <h4>الميزات الرئيسية</h4>
+            <ul>
+              <li>✦ بسيط جداً للاستخدام بترابط دقيق جداً.</li>
+              <li>✦ تخزين يدوم مدى الحياة بدون انترنت.</li>
+              <li>✦ميزة الفهرس لاختصار الكتابة بحرف واحد .</li>
+              <li>✦إمكانية تحويل الفاتورة الى pdf في ثانيتين.</li>
+              <li>✦ميزة النسخ الاحتياطي.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-          <div class="project-info">
-            <div class="project-header">
-              <h3>لعبة 3D تقليد للعبة البلياردو مع ميزات ذكاء اصطناعي لجنون الكرة السوداء</h3>
-              <div class="os-badges">
-                <span class="os-badge web">Unity</span>
-              </div>
+      <!-- 7. خوارزمية ذكية (ai + games? no, it's ai only) -->
+      <div class="project-card web-card" data-category="ai">
+        <div class="project-screenshots"
+          style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
+          <img src="images/slides_puzzle.png" alt="مشروع بايثون"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="screenshot-placeholder"
+            style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
+            <span style="font-size: 3rem;">🧠</span>
+            <p style="color: #00d4ff; margin-top: 1rem;">مشروع بايثون</p>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-header">
+            <h3>خوارزمية ذكية لحل الغاز لعبة المكعبات المنزلقة</h3>
+            <div class="os-badges">
+              <span class="os-badge web">Python</span>
             </div>
-            <div class="tech-stack">
-              <span class="tech-chip">Unity</span>
-              <span class="tech-chip">C#</span>
-              <span class="tech-chip">3D body</span>
-              <span class="tech-chip">NavMesh</span>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-chip">python</span>
+            <span class="tech-chip">heapq</span>
+            <span class="tech-chip">copy</span>
+            <span class="tech-chip">typing</span>
+          </div>
+          <div class="features-list">
+            <h4>الميزات الرئيسية</h4>
+            <ul>
+              <li>✦ حل جميع الغاز اللعبة مهما بلغت صعوبتها </li>
+              <li>✦ تصميم مذهل وكأنها اللعبة نفسها</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. لعبة الدبابة (games) -->
+      <div class="project-card web-card" data-category="games">
+        <div class="project-screenshots"
+          style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
+          <img src="images/tank_gun.png" alt="مشروع لعبة 1"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="screenshot-placeholder"
+            style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
+            <span style="font-size: 3rem;">🎮</span>
+            <p style="color: #00d4ff; margin-top: 1rem;">مشروع لعبة</p>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-header">
+            <h3>لعبة 3D لدبابة تقصف الروبوتات المتحركة</h3>
+            <div class="os-badges">
+              <span class="os-badge web">Unity Hub</span>
             </div>
-            <div class="features-list">
-              <h4>الميزات الرئيسية</h4>
-              <ul>
-                <li>✦ تحكم فريد في زاوية الرؤية </li>
-                <li>✦ الكرة السوداء يجن جنونها بين الحين والاخر وتقترب من الكرة البيضاء لزيادة نسب خسارة اللاعب</li>
-                <li>✦ نظام حساب نقاط وتمييز بين الكرات </li>
-              </ul>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-chip">Unity Hub</span>
+            <span class="tech-chip">C#</span>
+            <span class="tech-chip">3D body</span>
+            <span class="tech-chip">NavMesh</span>
+          </div>
+          <div class="features-list">
+            <h4>الميزات الرئيسية</h4>
+            <ul>
+              <li>✦ الروبوتات تهرب من الدبابة</li>
+              <li>✦ ميزة zoom وتاثير قصف وتحليق الروبوتات</li>
+              <li>✦ تضاريس واقعية تحاكي اراضي حروب الدبابات</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. موقع Turkey Box (web) -->
+      <div class="project-card web-card" data-category="web">
+        <div class="project-screenshots"
+          style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
+          <img src="images/turkey_box.png" alt="مشروع ويب 1"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="screenshot-placeholder"
+            style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
+            <span style="font-size: 3rem;">🌐</span>
+            <p style="color: #00d4ff; margin-top: 1rem;">مشروع ويب</p>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-header">
+            <h3>موقع لحساب تكاليف مقاسات الصناديق بانواعها</h3>
+            <div class="os-badges">
+              <span class="os-badge web">Web</span>
             </div>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-chip">HTML</span>
+            <span class="tech-chip">CSS</span>
+            <span class="tech-chip">JavaScript</span>
+            <span class="tech-chip">Github</span>
+          </div>
+          <div class="features-list">
+            <h4>الميزات الرئيسية</h4>
+            <ul>
+              <li>✦ تناسق جيد بين الهاتف و الحاسوب</li>
+              <li>✦ حسابات دقيقة وفورية</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. لعبة Naruto Balls (games) -->
+      <div class="project-card web-card" data-category="games">
+        <div class="project-screenshots"
+          style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
+          <img src="images/naruto_balls.png" alt="مشروع لعبة 2"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="screenshot-placeholder"
+            style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
+            <span style="font-size: 3rem;">🎮</span>
+            <p style="color: #00d4ff; margin-top: 1rem;">مشروع لعبة</p>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-header">
+            <h3>لعبة 3D ل 5 كرات بقدرات مختلفة</h3>
+            <div class="os-badges">
+              <span class="os-badge web">Unity</span>
+            </div>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-chip">Unity</span>
+            <span class="tech-chip">C#</span>
+            <span class="tech-chip">3D body</span>
+            <span class="tech-chip">NavMesh</span>
+          </div>
+          <div class="features-list">
+            <h4>الميزات الرئيسية</h4>
+            <ul>
+              <li>✦ الروبوتات تهاجم الكرات بعنف</li>
+              <li>✦ كل كرة لها قدرتها (التقليص-التضخيم-السرعة-القفز-اطلاق النار)</li>
+              <li>✦ تحكم عالي بكل كرة منفردة او بجميع الكرات معاً</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. لعبة Crazy Billiard (games) -->
+      <div class="project-card web-card" data-category="games">
+        <div class="project-screenshots"
+          style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
+          <img src="images/crazy_billiard.png" alt="مشروع لعبة 3"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="screenshot-placeholder"
+            style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
+            <span style="font-size: 3rem;">🎮</span>
+            <p style="color: #00d4ff; margin-top: 1rem;">مشروع لعبة</p>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-header">
+            <h3>لعبة 3D تقليد للعبة البلياردو مع ميزات ذكاء اصطناعي لجنون الكرة السوداء</h3>
+            <div class="os-badges">
+              <span class="os-badge web">Unity</span>
+            </div>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-chip">Unity</span>
+            <span class="tech-chip">C#</span>
+            <span class="tech-chip">3D body</span>
+            <span class="tech-chip">NavMesh</span>
+          </div>
+          <div class="features-list">
+            <h4>الميزات الرئيسية</h4>
+            <ul>
+              <li>✦ تحكم فريد في زاوية الرؤية </li>
+              <li>✦ الكرة السوداء يجن جنونها بين الحين والاخر وتقترب من الكرة البيضاء لزيادة نسب خسارة اللاعب</li>
+              <li>✦ نظام حساب نقاط وتمييز بين الكرات </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12. تطبيق محاسبي (desktop) -->
+      <div class="project-card web-card" data-category="desktop">
+        <div class="project-screenshots"
+          style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
+          <img src="images/original_accounting.jpg" alt="تطبيق كمبيوتر"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="screenshot-placeholder"
+            style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
+            <span style="font-size: 3rem;">💻</span>
+            <p style="color: #00d4ff; margin-top: 1rem;">تطبيق كمبيوتر</p>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-header">
+            <h3>تطبيق محاسبي للتجارة بالبضائع</h3>
+            <div class="os-badges">
+              <span class="os-badge web">windows</span>
+            </div>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-chip">Flutter</span>
+            <span class="tech-chip">Dart</span>
+            <span class="tech-chip">Shared Preferences</span>
+            <span class="tech-chip">Json Files</span>
+            <span class="tech-chip">PDF</span>
+          </div>
+          <div class="features-list">
+            <h4>الميزات الرئيسية</h4>
+            <ul>
+              <li>✦ إمكانية تخزين البيانات بشكل دائم ومشاركتها لمتعدد الاجهزة</li>
+              <li>✦ ميزة لتصدير فواتير و تفاصيل الى pdf و النسخ الاحتياطي</li>
+              <li>✦ سرعة الكتابة واختصار الكلمات بالارقام و الحروف</li>
+              <li>✦ استغناء كامل عن الفأرة سلاسة كبيرة بالكتابة</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
-    <!-- ====== SECTION 5: SKILLS ====== -->
-    <section class="skills section" id="skills">
-      <div class="section-header">
-        <span class="section-number">03</span>
-        <h2 class="section-title">المهارات</h2>
-        <div class="section-line"></div>
-      </div>
+  </section>
+  <!-- ====== SECTION 5: SKILLS ====== -->
+  <section class="skills section" id="skills">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <h2 class="section-title">المهارات</h2>
+      <div class="section-line"></div>
+    </div>
 
-      <div class="skills-universe">
+    <div class="skills-universe">
 
-        <div class="skill-category">
-          <div class="skill-cat-header">
-            <span class="skill-cat-icon">🧠</span>
-            <h3>تقنيات الذكاء الاصطناعي</h3>
-          </div>
-          <div class="skill-bubbles">
-            <div class="skill-bubble" data-level="90" data-name="Rasa">Rasa(NLP)</div>
-            <div class="skill-bubble" data-level="80" data-name="Whisper">Whisper(STT)</div>
-            <div class="skill-bubble" data-level="60" data-name="OpenCV">OpenCV</div>
-          </div>
+      <div class="skill-category">
+        <div class="skill-cat-header">
+          <span class="skill-cat-icon">🧠</span>
+          <h3>تقنيات الذكاء الاصطناعي</h3>
         </div>
-
-        <div class="skill-category">
-          <div class="skill-cat-header">
-            <span class="skill-cat-icon">📱</span>
-            <h3>تطوير تطبيقات الموبايل</h3>
-          </div>
-          <div class="skill-bubbles">
-            <div class="skill-bubble" data-level="92" data-name="Flutter">Flutter</div>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <div class="skill-cat-header">
-            <span class="skill-cat-icon">🗄️</span>
-            <h3>قواعد البيانات</h3>
-          </div>
-          <div class="skill-bubbles">
-            <div class="skill-bubble" data-level="85" data-name="MySQL">MySQL</div>
-            <div class="skill-bubble" data-level="70" data-name="SQLite">SQLite</div>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <div class="skill-cat-header">
-            <span class="skill-cat-icon">🛠️</span>
-            <h3>أدوات وتقنيات أخرى</h3>
-          </div>
-          <div class="skill-bubbles">
-            <div class="skill-bubble" data-level="90" data-name="Git">Git</div>
-            <div class="skill-bubble" data-level="82" data-name="Postman">Postman</div>
-            <div class="skill-bubble" data-level="95" data-name="Draw.io">Draw.io</div>
-            <div class="skill-bubble" data-level="95" data-name="Ngrok">Ngrok</div>
-            <div class="skill-bubble" data-level="65" data-name="Laravel">Laravel</div>
-            <div class="skill-bubble" data-level="86" data-name="Xampp">Xampp</div>
-            <div class="skill-bubble" data-level="78" data-name="Laragon">Laragon</div>
-            <div class="skill-bubble" data-level="85" data-name="Hostinger">Hostinger</div>
-            <div class="skill-bubble" data-level="85" data-name="Flask">Flask</div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="skill-tooltip" id="skillTooltip"></div>
-    </section>
-
-    <!-- ====== SECTION 6: CERTIFICATIONS ====== -->
-    <section class="certifications section" id="certifications">
-      <div class="section-header">
-        <span class="section-number">04</span>
-        <h2 class="section-title">الشهادات والدورات</h2>
-        <div class="section-line"></div>
-      </div>
-
-      <div class="cert-tabs">
-        <button class="cert-tab-btn active" data-ctab="certs">🏆 الشهادات المهنية</button>
-        <button class="cert-tab-btn" data-ctab="courses">📚 الدورات والورش</button>
-        <button class="cert-tab-btn" data-ctab="events">🎤 المؤتمرات</button>
-      </div>
-
-      <!-- الشهادات المهنية -->
-      <div class="cert-content active" id="ctab-certs">
-        <div class="certs-grid">
-          <div class="cert-card">
-            <div class="cert-badge">🏆</div>
-            <div class="cert-body">
-              <span class="cert-issuer">معهد دمشق المتوسط DTC</span>
-              <h4>دبلوم صيانة اجهزة الكمبيوتر و الآلات المكتبية</h4>
-              <span class="cert-date">2020</span>
-            </div>
-          </div>
-          <div class="cert-card">
-            <div class="cert-badge">🎖️</div>
-            <div class="cert-body">
-              <span class="cert-issuer">معهد دمشق المتوسط DTC</span>
-              <h4>دبلوم الذكاء الاصطناعي</h4>
-              <span class="cert-date">2025</span>
-            </div>
-          </div>
+        <div class="skill-bubbles">
+          <div class="skill-bubble" data-level="90" data-name="Rasa">Rasa(NLP)</div>
+          <div class="skill-bubble" data-level="80" data-name="Whisper">Whisper(STT)</div>
+          <div class="skill-bubble" data-level="60" data-name="OpenCV">OpenCV</div>
         </div>
       </div>
 
-      <!-- الدورات والورش -->
-      <div class="cert-content" id="ctab-courses">
-        <div class="certs-grid">
-          <div class="cert-card course-card">
-            <div class="cert-badge">📚</div>
-            <div class="cert-body">
-              <span class="cert-issuer">EMBS</span>
-              <h4>دورة بناء نماذج ذكاء اصطناعي</h4>
-              <span class="cert-date">📅 2025</span>
-              <div class="course-hours">⏱ شهرين</div>
-            </div>
-          </div>
-          <!-- يمكنك إضافة المزيد من الدورات هنا -->
+      <div class="skill-category">
+        <div class="skill-cat-header">
+          <span class="skill-cat-icon">📱</span>
+          <h3>تطوير تطبيقات الموبايل</h3>
+        </div>
+        <div class="skill-bubbles">
+          <div class="skill-bubble" data-level="92" data-name="Flutter">Flutter</div>
         </div>
       </div>
 
-      <!-- المؤتمرات -->
-      <div class="cert-content" id="ctab-events">
+      <div class="skill-category">
+        <div class="skill-cat-header">
+          <span class="skill-cat-icon">🗄️</span>
+          <h3>قواعد البيانات</h3>
+        </div>
+        <div class="skill-bubbles">
+          <div class="skill-bubble" data-level="85" data-name="MySQL">MySQL</div>
+          <div class="skill-bubble" data-level="70" data-name="SQLite">SQLite</div>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="skill-cat-header">
+          <span class="skill-cat-icon">🛠️</span>
+          <h3>أدوات وتقنيات أخرى</h3>
+        </div>
+        <div class="skill-bubbles">
+          <div class="skill-bubble" data-level="90" data-name="Git">Git</div>
+          <div class="skill-bubble" data-level="82" data-name="Postman">Postman</div>
+          <div class="skill-bubble" data-level="95" data-name="Draw.io">Draw.io</div>
+          <div class="skill-bubble" data-level="95" data-name="Ngrok">Ngrok</div>
+          <div class="skill-bubble" data-level="65" data-name="Laravel">Laravel</div>
+          <div class="skill-bubble" data-level="86" data-name="Xampp">Xampp</div>
+          <div class="skill-bubble" data-level="78" data-name="Laragon">Laragon</div>
+          <div class="skill-bubble" data-level="85" data-name="Hostinger">Hostinger</div>
+          <div class="skill-bubble" data-level="85" data-name="Flask">Flask</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="skill-tooltip" id="skillTooltip"></div>
+  </section>
+
+  <!-- ====== SECTION 6: CERTIFICATIONS ====== -->
+  <section class="certifications section" id="certifications">
+    <div class="section-header">
+      <span class="section-number">04</span>
+      <h2 class="section-title">الشهادات والدورات</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="cert-tabs">
+      <button class="cert-tab-btn active" data-ctab="certs">🏆 الشهادات المهنية</button>
+      <button class="cert-tab-btn" data-ctab="courses">📚 الدورات والورش</button>
+      <button class="cert-tab-btn" data-ctab="events">🎤 المؤتمرات</button>
+    </div>
+
+    <!-- الشهادات المهنية -->
+    <div class="cert-content active" id="ctab-certs">
+      <div class="certs-grid">
+        <div class="cert-card">
+          <div class="cert-badge">🏆</div>
+          <div class="cert-body">
+            <span class="cert-issuer">معهد دمشق المتوسط DTC</span>
+            <h4>دبلوم صيانة اجهزة الكمبيوتر و الآلات المكتبية</h4>
+            <span class="cert-date">2020</span>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-badge">🎖️</div>
+          <div class="cert-body">
+            <span class="cert-issuer">معهد دمشق المتوسط DTC</span>
+            <h4>دبلوم الذكاء الاصطناعي</h4>
+            <span class="cert-date">2025</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- الدورات والورش -->
+    <div class="cert-content" id="ctab-courses">
+      <div class="certs-grid">
+        <div class="cert-card course-card">
+          <div class="cert-badge">📚</div>
+          <div class="cert-body">
+            <span class="cert-issuer">EMBS</span>
+            <h4>دورة بناء نماذج ذكاء اصطناعي</h4>
+            <span class="cert-date">📅 2025</span>
+            <div class="course-hours">⏱ شهرين</div>
+          </div>
+        </div>
+        <!-- يمكنك إضافة المزيد من الدورات هنا -->
+      </div>
+    </div>
+
+    <!-- المؤتمرات -->
+    <div class="cert-content" id="ctab-events">
+      <div class="certs-grid">
+        <div class="cert-card event-card">
+          <div class="cert-badge">🎤</div>
+          <div class="cert-body">
+            <span class="cert-issuer">دمشق / سوريا</span>
+            <h4>معرض معهد دمشق المتوسط</h4>
+            <span class="cert-date">📅 2025</span>
+            <div class="event-role">دور: مقدم مشاريع</div>
+          </div>
+        </div>
         <div class="certs-grid">
           <div class="cert-card event-card">
             <div class="cert-badge">🎤</div>
             <div class="cert-body">
               <span class="cert-issuer">دمشق / سوريا</span>
-              <h4>معرض معهد دمشق المتوسط</h4>
+              <h4>معرض تكنو سبارك</h4>
               <span class="cert-date">📅 2025</span>
               <div class="event-role">دور: مقدم مشاريع</div>
             </div>
           </div>
-          <div class="certs-grid">
-            <div class="cert-card event-card">
-              <div class="cert-badge">🎤</div>
-              <div class="cert-body">
-                <span class="cert-issuer">دمشق / سوريا</span>
-                <h4>معرض تكنو سبارك</h4>
-                <span class="cert-date">📅 2025</span>
-                <div class="event-role">دور: مقدم مشاريع</div>
-              </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- ====== SECTION 7: CONTACT ====== -->
+  <section class="contact section" id="contact">
+    <div class="section-header">
+      <span class="section-number">05</span>
+      <h2 class="section-title">تواصل معي</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>دعنا نتحدث 👋</h3>
+        <p>هل لديك مشروع تريد تحقيقه؟ أو تريد التحدث عن عرض فرصة عمل؟ أنا هنا للاستماع. تواصل معي وسأرد خلال اقل من 24
+          ساعة.</p>
+
+        <div class="contact-channels">
+          <a href="javascript:void(0)" class="channel-item" id="copyEmailBtn">
+            <div class="channel-icon">✉️</div>
+            <div class="channel-info">
+              <span class="channel-label">البريد الإلكتروني (انقر للنسخ)</span>
+              <span class="channel-value">waelbilal20032003@gmail.com</span>
             </div>
-          </div>
-        </div>
-    </section>
+          </a>
+          <a href="https://wa.me/+963934875267" target="_blank" class="channel-item">
+            <div class="channel-icon">📞</div>
+            <div class="channel-info">
+              <span class="channel-label">WhatsApp (انقر للحديث معي)</span>
+              <span class="channel-value">+963934875267</span>
+            </div>
+          </a>
+  </section>
 
-    <!-- ====== SECTION 7: CONTACT ====== -->
-    <section class="contact section" id="contact">
-      <div class="section-header">
-        <span class="section-number">05</span>
-        <h2 class="section-title">تواصل معي</h2>
-        <div class="section-line"></div>
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <span class="logo-bracket">&lt;</span>
+        <span>Wael</span>
+        <span class="logo-bracket">/&gt;</span>
       </div>
+      <p class="footer-copy">صُنع بـ ❤️ وشغف بالتكنولوجيا · جميع الحقوق محفوظة © 2026</p>
+      <button class="back-to-top" id="backToTop" title="العودة للأعلى">↑</button>
+    </div>
+  </footer>
 
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h3>دعنا نتحدث 👋</h3>
-          <p>هل لديك مشروع تريد تحقيقه؟ أو تريد التحدث عن عرض فرصة عمل؟ أنا هنا للاستماع. تواصل معي وسأرد خلال اقل من 24
-            ساعة.</p>
-
-          <div class="contact-channels">
-            <a href="mailto:your@email.com" class="channel-item">
-              <div class="channel-icon">✉️</div>
-              <div class="channel-info">
-                <span class="channel-label">البريد الإلكتروني</span>
-                <span class="channel-value">waelbilal20032003@gmail.com</span>
-              </div>
-            </a>
-            <a href="https://wa.me/+963934875267" target="_blank" class="channel-item">
-              <div class="channel-icon">📞</div>
-              <div class="channel-info">
-                <span class="channel-label">WhatsApp</span>
-                <span class="channel-value">+963934875267</span>
-              </div>
-            </a>
-    </section>
-
-    <!-- ====== FOOTER ====== -->
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <span class="logo-bracket">&lt;</span>
-          <span>Wael</span>
-          <span class="logo-bracket">/&gt;</span>
-        </div>
-        <p class="footer-copy">صُنع بـ ❤️ وشغف بالتكنولوجيا · جميع الحقوق محفوظة © 2026</p>
-        <button class="back-to-top" id="backToTop" title="العودة للأعلى">↑</button>
-      </div>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>

@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initActiveNavLinks();
   initPhotoUpload();
+  initCopyEmail();
 });
 
 // ─── NAVBAR ───
@@ -187,33 +188,39 @@ function animateCount(el, start, end, duration) {
 
   requestAnimationFrame(update);
 }
-
-// ─── TABS (PROJECTS) ───
+// ─── PROJECTS FILTER (بدلاً من TABS) ───
 function initTabs() {
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const tabContents = document.querySelectorAll('.tab-content');
+  const filterBtns = document.querySelectorAll('#projectsFilterBtns .filter-btn');
+  const allProjects = document.querySelectorAll('#allProjectsGrid .project-card');
 
-  tabBtns.forEach(btn => {
+  if (!filterBtns.length || !allProjects.length) return;
+
+  filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      const tab = btn.dataset.tab;
-
-      tabBtns.forEach(b => b.classList.remove('active'));
-      tabContents.forEach(c => c.classList.remove('active'));
-
+      // إزالة active من جميع الأزرار
+      filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const target = document.getElementById('tab-' + tab);
-      if (target) {
-        target.classList.add('active');
-        // Trigger accuracy bars animation
-        target.querySelectorAll('.accuracy-fill').forEach(el => {
-          const acc = el.dataset.acc;
-          setTimeout(() => { el.style.width = acc + '%'; }, 100);
-        });
-      }
+
+      const filterValue = btn.dataset.filter;
+
+      allProjects.forEach(project => {
+        const categories = project.dataset.category || '';
+
+        if (filterValue === 'all') {
+          project.style.display = '';
+        } else {
+          // التحقق مما إذا كان المشروع يحتوي على الفئة المطلوبة
+          const categoryList = categories.split(' ');
+          if (categoryList.includes(filterValue)) {
+            project.style.display = '';
+          } else {
+            project.style.display = 'none';
+          }
+        }
+      });
     });
   });
 }
-
 // ─── CERT TABS ───
 function initCertTabs() {
   const ctabBtns = document.querySelectorAll('.cert-tab-btn');
@@ -477,7 +484,7 @@ function initPhotoUpload() {
 
 // ─── SMOOTH SCROLL ENHANCEMENT ───
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
+  anchor.addEventListener('click', function (e) {
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
       e.preventDefault();
@@ -499,3 +506,118 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 })();
 
+// ===== منطق أزرار الفرز =====
+(function () {
+  const tabs = document.querySelectorAll('.tab-btn');
+  const filterSection = document.getElementById('filterBtns');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const moreGrid = document.getElementById('moreGrid');
+
+  // إظهار/إخفاء أزرار الفرز حسب التبويب النشط
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function () {
+      if (this.dataset.tab === 'more') {
+        filterSection.style.display = 'flex';
+        applyFilter('all');
+        document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+      } else {
+        filterSection.style.display = 'none';
+      }
+    });
+  });
+
+  // منطق الفرز
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function () {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      applyFilter(this.dataset.filter);
+    });
+  });
+
+  function applyFilter(filter) {
+    if (!moreGrid) return;
+    const cards = moreGrid.querySelectorAll('.project-card');
+
+    // في حالة الذكاء الاصطناعي: نجمع بطاقات الموبايل المحددة + بطاقة أخرى
+    if (filter === 'ai') {
+      // إخفاء كل بطاقات قسم أخرى أولاً
+      cards.forEach(card => { card.style.display = 'none'; });
+      // إظهار بطاقة الخوارزمية من قسم أخرى
+      moreGrid.querySelectorAll('[data-category="ai"]').forEach(c => { c.style.display = ''; });
+      // إظهار بطاقتي الموبايل المكررتين مؤقتاً
+      showAiMobileClones();
+    } else {
+      removeAiMobileClones();
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  }
+
+  function showAiMobileClones() {
+    removeAiMobileClones();
+    const mobileCards = document.querySelectorAll('#tab-mobile .project-card[data-category="ai"]');
+    mobileCards.forEach(card => {
+      const clone = card.cloneNode(true);
+      clone.classList.add('ai-mobile-clone');
+      moreGrid.insertBefore(clone, moreGrid.firstChild);
+    });
+  }
+
+  function removeAiMobileClones() {
+    document.querySelectorAll('.ai-mobile-clone').forEach(c => c.remove());
+  }
+})();
+
+// ─── COPY EMAIL TO CLIPBOARD ─── (خارج الـ IIFE)
+function initCopyEmail() {
+  const copyBtn = document.getElementById('copyEmailBtn');
+  if (!copyBtn) return;
+
+  copyBtn.addEventListener('click', async (e) => {
+    e.preventDefault();  // يمنع السلوك الافتراضي تماماً
+    e.stopPropagation(); // يمنع انتشار الحدث
+    
+    const email = 'waelbilal20032003@gmail.com';
+    
+    try {
+      await navigator.clipboard.writeText(email);
+      
+      const channelValue = copyBtn.querySelector('.channel-value');
+      const originalText = channelValue.textContent;
+      const originalLabel = copyBtn.querySelector('.channel-label');
+      const originalLabelText = originalLabel.textContent;
+      
+      channelValue.textContent = '✅ تم النسخ!';
+      originalLabel.textContent = 'تم نسخ البريد الإلكتروني';
+      
+      setTimeout(() => {
+        channelValue.textContent = originalText;
+        originalLabel.textContent = originalLabelText;
+      }, 2000);
+      
+    } catch (err) {
+      console.error('فشل النسخ: ', err);
+      const textarea = document.createElement('textarea');
+      textarea.value = email;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      
+      const channelValue = copyBtn.querySelector('.channel-value');
+      const originalText = channelValue.textContent;
+      channelValue.textContent = '✅ تم النسخ!';
+      setTimeout(() => {
+        channelValue.textContent = originalText;
+      }, 2000);
+    }
+    
+    return false; // تأكيد منع السلوك الافتراضي
+  });
+}
