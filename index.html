@@ -74,17 +74,17 @@
 
         <div class="hero-stats">
           <div class="stat-item">
-            <span class="stat-num" data-target="11">0</span>
+            <span class="stat-num" data-target="12">12</span>
             <span class="stat-label">مشروع منجز</span>
           </div>
           <div class="stat-divider"></div>
           <div class="stat-item">
-            <span class="stat-num" data-target="1">0</span>
+            <span class="stat-num" data-target="2">2</span>
             <span class="stat-label">سنوات خبرة</span>
           </div>
           <div class="stat-divider"></div>
           <div class="stat-item">
-            <span class="stat-num" data-target="2">0</span>
+            <span class="stat-num" data-target="2">2</span>
             <span class="stat-label">شهادة مهنية</span>
           </div>
         </div>
@@ -553,6 +553,47 @@
     <!-- More Projects (قسم أخرى) -->
     <div class="tab-content" id="tab-more">
       <div class="projects-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+
+          <div class="project-card web-card">
+          <div class="project-screenshots"
+            style="position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
+            <!-- صورة المشروع -->
+            <img src="original_accounting.jpg" alt="تطبيق كمبيوتر"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;"
+              onerror="this.style.display='none'; document.getElementById('placeholder-turkey').style.display='flex';" />
+
+            <!-- عنصر احتياطي مع id محدد -->
+            <div id="placeholder-turkey" class="screenshot-placeholder"
+              style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(145deg, #1a1a2e, #16213e); border-radius: 12px; flex-direction: column; align-items: center; justify-content: center;">
+              <span style="font-size: 3rem;">🌐</span>
+              <p style="color: #00d4ff; margin-top: 1rem;">تطبيق كمبيوتر</p>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-header">
+              <h3>تطبيق محاسبي للتجارة بالبضائع </h3>
+              <div class="os-badges">
+                <span class="os-badge web">windows</span>
+              </div>
+            </div>
+            <div class="tech-stack">
+              <span class="tech-chip">Flutter</span>
+              <span class="tech-chip">Dart</span>
+              <span class="tech-chip">Shared Preferences</span>
+              <span class="tech-chip">Json Files</span>
+              <span class="tech-chip">PDF</span>
+            </div>
+            <div class="features-list">
+              <h4>الميزات الرئيسية</h4>
+              <ul>
+                <li>✦ إمكانية تخزين البيانات بشكل دائم ومشاركتها لمتعدد الاجهزة</li>
+                <li>✦ ميزة لتصدير فواتير و تفاصيل الى pdf و النسخ الاحتياطي</li>
+                <li>✦ سرعة الكتابة واختصار الكلمات بالارقام و الحروف</li>
+                <li>✦ استغناء كامل عن الفأرة سلاسة كبيرة بالكتابة</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
         <!-- مشروع بايثون 1 -->
         <div class="project-card web-card">
