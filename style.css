@@ -1937,3 +1937,46 @@ ul {
   border-color: var(--accent);
   box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
 }
+
+/* تحسين عرض صور المشاريع على الموبايل */
+@media (max-width: 768px) {
+
+  /* إخفاء صورة الكمبيوتر وإظهار صورة الموبايل */
+  .desktop-screenshot {
+    display: none !important;
+  }
+
+  .mobile-screenshot {
+    display: block !important;
+  }
+
+  /* جعل إطار صور مشاريع الويب والألعاب يتكيف مع الموبايل */
+  .web-card .project-screenshots {
+    aspect-ratio: auto !important;
+    min-height: 250px;
+    max-height: 400px;
+  }
+
+  .web-card .project-screenshots img {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 400px;
+    object-fit: contain !important;
+  }
+
+  /* تحسين بطاقات الويب لتظهر بشكل عمودي */
+  .web-card {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-screenshot {
+    display: none !important;
+  }
+
+  .desktop-screenshot {
+    display: block !important;
+  }
+}
